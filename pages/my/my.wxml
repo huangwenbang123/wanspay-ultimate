@@ -1,0 +1,37 @@
+<view class='sort red_black_btn' style="height:10em" >
+  <view bindtap='toScbh' class="weui-tabbar__item" style="padding-top: 9%" bindtap='totrans'>
+    <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/translog.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;" />
+    <view class="weui-tabbar__label" style="font-size: 12px;color:white">交易记录</view>
+  </view>
+  <view class="weui-tabbar__item" style="padding-top: 9%">
+    <view style="padding: 5px;">
+      <image src="{{userInfo.avatarUrl}}" class="weui-tabbar__icon" style="width: 40px;height: 40px;border-radius: 128rpx;">
+      </image>
+    </view>
+    <view class="weui-tabbar__label" style="font-size: 12px;color:white;text-align:center">{{userInfo.nickName}}</view>
+  </view>
+
+  <view class="weui-tabbar__item" style="padding-top: 9%" bindtap='tocard'>
+    <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/card.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;" />
+    <view class="weui-tabbar__label" style="font-size: 12px;color:white;text-align:center">卡包</view>
+  </view>
+
+</view>
+
+<view style='background-color:#E8E8E8;height:8px;display:flex'></view>
+
+<view class="page" style="background: #FFFFFF">
+   
+        <view class="weui-grids">
+                    <navigator url="/pages/video/videolist" class="weui-grid" hover-class="weui-grid_active">
+                    <image class="weui-grid__icon" src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/vedioCharge.png" />
+                    <view class="weui-grid__label">视频充值</view>
+                </navigator>
+                    <navigator url="/pages/game/gamelist" class="weui-grid" hover-class="weui-grid_active">
+                    <image class="weui-grid__icon" src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/gameCharge.png" />
+                    <view class="weui-grid__label">游戏充值</view>
+                </navigator>
+        </view>
+</view>
+
+

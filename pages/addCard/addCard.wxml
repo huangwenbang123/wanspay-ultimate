@@ -1,0 +1,23 @@
+<!--pages/addCard/addCard.wxml-->
+		<view class="w640 ul-top02">
+
+
+
+		 <view class="weui-cells weui-cells_after-title user-screen clearfix">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入卡号" maxlength="19" bindinput="mobileInput"  value='{{acctId}}' type='number'/>
+                </view>
+            </view>
+        </view>
+
+
+<view class="weui-cells weui-cells_after-title user-screen clearfix">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入密码" maxlength="6" bindinput="mobile1Input" value='{{acctSecret}}' type='number' password='true' />
+                </view>
+            </view>
+  </view>
+   </view>
+	<button class="card-btn red_black_btn" bindtap="saveCar">确定</button>

@@ -1,0 +1,42 @@
+<view class="page">
+  <view class="page__hd" style='padding:0px'>
+    <view class="page__desc">视频充值</view>
+  </view>
+  <view class="page__bd" style='padding-bottom:0px'>
+    <view class="weui-grids" style='background:#FFFFFF'>
+      <view wx:for="{{videoList}}" wx:for-index="idx">
+        <view class="weui-grid js_grid" id="{{videoList[idx].firmId}}" bindtap='detailedVideInfo'>
+          <view class="weui-grid__icon">
+            <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/jusutong/video/{{videoList[idx].firmId}}.png" class='videoimage'>
+            </image>
+
+          </view>
+          <view class="weui-grid__label">
+            {{videoList[idx].firmName}}
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+
+  <view class="page__hd" style='padding:0px'>
+    <view class="page__desc">游戏充值</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-grids" style='background:#FFFFFF'>
+      <view wx:for="{{gamelist}}" wx:for-index="idx">
+        <view class="weui-grid js_grid" data-num="{{idx}}" id="{{gamelist[idx].itemId}}" bindtap='detailedGameInfo'>
+          <view class="weui-grid__icon">
+            <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/jusutong/game/{{gamelist[idx].itemId}}.png" class='videoimage'>
+            </image>
+          </view>
+          <view class="weui-grid__label">
+            {{gamelist[idx].itemName}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

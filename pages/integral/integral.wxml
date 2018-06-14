@@ -1,0 +1,4 @@
+<!--pages/integral/integral.wxml-->
+<web-view src = 'https://integraltest.sanppay.com/sign/index'>
+</web-view>
+

@@ -1,0 +1,33 @@
+/* pages/bmfu/bmfu.wxss */
+
+.weui-grid {
+  position: relative;
+  float: left;
+  padding: 20px 10px;
+  width: 33.333%;
+  box-sizing: border-box;
+}
+
+.imgHW {
+  height: 100%;
+  width: 100%;
+}
+
+page {
+  background-color: #f4f4f4;
+}
+
+.title {
+  font-size: 0.6rem;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+  display: flex;
+}
+
+.triangle {
+  height: 8px;
+  padding-top: 3.5%;
+  margin-left: -14%;
+  width: 8px;
+}

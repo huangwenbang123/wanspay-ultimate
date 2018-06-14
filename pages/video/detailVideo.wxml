@@ -1,0 +1,24 @@
+<!--pages/video/detailVideo.wxml-->
+ <view class="w640 ul-top02">
+        <view class="weui-cells weui-cells_after-title user-screen clearfix">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="{{placeholder}}" maxlength="13" bindinput="mobileInput"  type='number' value='{{mobile}}'/>
+                </view>
+            </view>
+        </view>
+        
+ <ul class="card-fee clearfix">
+ <block wx:for="{{productList}}" wx:for-index="idx">
+        <li bindtap="active" data-num="{{idx+1}}" class="{{active ==idx+1 ?'active':'' }}" >
+            <span   class="fee1">{{productList[idx].itemName}}</span><span class="fee2">售价:{{productList[idx].itemSalesPrice}}元 </span>
+        </li>
+  </block>
+    </ul>
+    <form bindsubmit="saveCar" report-submit='true' >  
+     <button class="card-btn red_black_btn"  form-type="submit">确定</button>
+    </form>
+ </view>
+
+
+  

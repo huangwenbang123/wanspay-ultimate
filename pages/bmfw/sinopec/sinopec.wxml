@@ -1,0 +1,117 @@
+<!--pages/bmfw/sinopec/sinopec.wxml-->
+<view hidden='{{hiddenFlag}}'>
+  <view bindtap='back' style='margin-top:5%;' class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-cell__bd">中石化加油卡充值</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+      </view>
+    </view>
+  </view>
+
+  <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title">油卡卡号</view>
+        <view style='padding-top:5%;line-height:5;font-size:18px;' class="weui-media-box__desc">
+          <input value='{{chargeNum}}' bindinput="inputValue" placeholder-style='color:#D1D1D1;font-size:16px' placeholder="19位加油卡卡号" type='number' maxlength='19'>
+          </input>
+        </view>
+        <view class="hr1"></view>
+      </view>
+    </view>
+  </view>
+
+  <button style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='next'>下一步</button>
+
+</view>
+
+<view hidden='{{!hiddenFlag}}'>
+
+  <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title twoFlex">
+          <view>
+            户名:
+          </view>
+          <view>
+            {{name}}
+          </view>
+        </view>
+
+        <view class="weui-media-box__title twoFlex">
+          <view>
+            用户编号:
+          </view>
+          <view>
+            {{num}}
+          </view>
+        </view>
+
+        <view class="weui-media-box__title twoFlex">
+          <view>
+            缴费单位:
+          </view>
+          <view>
+            中国石油化工集团公司
+          </view>
+        </view>
+        <view class="hr1"></view>
+        <view style='color:gray;letter-spacing: 0.05em;font-size:14px;' class="weui-media-box__title twoFlex">
+          仅支持对主卡充值(暂不支持副卡充值)
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title twoFlex">
+          充值金额
+        </view>
+
+        <view class="weui-media-box__title twoFlex Grid">
+          <view bindtap="active" data-num="1" style='margin:0' class='{{active == "1" ? "Grid-cell-select":"Grid-cell" }} box'>
+            <view>
+              100元
+            </view>
+
+          </view>
+          <view bindtap="active" data-num="2" class='{{active == "2" ? "Grid-cell-select":"Grid-cell" }} box'>
+            <view>
+              200元
+            </view>
+          </view>
+          <view bindtap="active" data-num="3" class='{{active == "3" ? "Grid-cell-select":"Grid-cell" }} box'>
+            <view>
+              500元
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-media-box__title twoFlex Grid">
+          <view bindtap="active" data-num="4" style='margin:0' class='{{active == "4" ? "Grid-cell-select":"Grid-cell" }} box'>
+            <view>
+              1000元
+            </view>
+          </view>
+          <view class='Grid-none'>
+            <view class='juzhong'>
+
+            </view>
+          </view>
+          <view class='Grid-none'>
+            <view class='juzhong'>
+
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+  <button style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='toCharge'>立即缴费</button>
+
+</view>

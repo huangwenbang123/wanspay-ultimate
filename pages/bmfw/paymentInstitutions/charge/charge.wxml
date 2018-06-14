@@ -1,0 +1,103 @@
+<!--pages/bmfw/paymentInstitutions/waterCharge/waterCharge.wxml-->
+
+<view hidden='{{hiddenFlag}}'>
+  <view bindtap='back' style='margin-top:5%;' class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-cell__bd">{{paymentInstitutions.projectName}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size: 0">
+      </view>
+    </view>
+  </view>
+
+  <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title">用户编号</view>
+        <view style='padding-top:5%;line-height:5;font-size:18px;' class="weui-media-box__desc">
+          <input value='{{billKey}}' bindinput="inputValue" placeholder-style='color:#D1D1D1;font-size:16px' placeholder="请输入缴费编号" type='number'>
+          </input>
+        </view>
+        <view class="hr1"></view>
+      </view>
+    </view>
+  </view>
+
+  <button style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='next'>查询账单</button>
+
+</view>
+
+<view hidden='{{!hiddenFlag}}'>
+
+
+  <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__title twoFlex">
+          <view>
+            户名:
+          </view>
+          <view>
+            {{name}}
+          </view>
+        </view>
+
+        <view class="weui-media-box__title twoFlex">
+          <view>
+            用户编号:
+          </view>
+          <view>
+            {{num}}
+          </view>
+        </view>
+
+        <view class="weui-media-box__title twoFlex">
+          <view>
+            缴费单位:
+          </view>
+          <view>
+            {{projectName}}
+          </view>
+        </view>
+         
+         <view class="weui-media-box__title twoFlex">
+          <view>
+            可用余额:
+          </view>
+          <view>
+           ￥{{balance}}
+          </view>
+        </view>
+
+          <view class="weui-media-box__title twoFlex">
+          <view>
+            应缴金额:
+          </view>
+          <view>
+           ￥{{payAmount}}
+          </view>
+        </view>
+
+        <view class="hr1"></view>
+        <view style='color:gray;letter-spacing: 0.05em;font-size:14px;' class="weui-media-box__title twoFlex">
+          有任何疑问请拨打我们的万商客服电话：110
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view style='margin:0;' class="weui-media-box__title twoFlex">
+          ￥  {{payAmount}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <button style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='toCharge'>立即缴费</button>
+
+</view>
+
+<import src="../../../preorder/preorder.wxml"/>
+<template is="checkstand" ></template>

@@ -1,0 +1,52 @@
+<view class="page">
+  <view wx:if="{{orderList.list==''}}">
+      <view style='margin-top:50%;margin-left:40%;color:#AAAAAA;'>
+        光秃秃一片~
+      </view>
+  </view>
+  <view wx:else>
+   <view wx:for="{{orderList.list}}" wx:for-index="idx">
+    <view wx:if="{{idx==0}}">
+      <view class="page__bd no-padding-bottom">
+        <view class="weui-form-preview">
+          <view class="weui-form-preview__hd">
+            <view class="weui-form-preview__item weui-flex weui-form-preview-top">
+              <view class="weui-flex__item" style='text-align:left;'>
+                <view wx:if="{{orderList.list[idx].tradeType=='SCAN_PAY'}}">
+                  扫二维码付款({{orderList.list[idx].merchantName}})
+                </view>
+                <view style='margin-top:-10%;font-size:13px;color:#999;'>
+                  {{orderList.list[idx].payTime}}
+                </view>
+              </view>
+              <view class="weui-flex__item" style='margin:auto;'>¥ {{orderList.list[idx].tradeAmount/100}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:else>
+      <view class="page__bd no-padding-bottom-top">
+        <view class="weui-form-preview">
+          <view class="weui-form-preview__hd">
+            <view class="weui-form-preview__item weui-flex weui-form-preview-top">
+              <view class="weui-flex__item" style='text-align:left;'>
+                <view wx:if="{{orderList.list[idx].tradeType=='SCAN_PAY'}}">
+                  扫二维码付款({{orderList.list[idx].merchantName}})
+                </view>
+                <view style='margin-top:-9%;font-size:13px;color:#999;'>
+                  {{orderList.list[idx].payTime}}
+                </view>
+              </view>
+              <view class="weui-flex__item" style='margin:auto;'>¥{{orderList.list[idx].tradeAmount/100}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+ 
+</view>

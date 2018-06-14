@@ -1,0 +1,14 @@
+.weui-form-preview{
+    margin-bottom: 15px;
+}
+.weui-form-preview-top{
+  margin-top: -1%;
+}
+.no-padding-bottom{
+  padding-bottom: 0px
+}
+.no-padding-bottom-top{
+  padding-bottom: 0px;
+  margin-top:-7%;
+}
+

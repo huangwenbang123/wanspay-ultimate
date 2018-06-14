@@ -1,0 +1,81 @@
+/* pages/bmfw/paymentInstitutions/waterCharge/waterCharge.wxss */
+
+
+page {
+  background-color: #f4f4f4;
+  font-size: 14px;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.hr1 {
+  height: 1px;
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+.twoFlex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+.parent {
+  width: 200px;
+  height: 150px;
+  background-color: black;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.child {
+  box-sizing: border-box;
+  background-color: white;
+  flex: 0 0 25%;
+  height: 50px;
+  border: 1px solid red;
+}
+
+.Grid {
+  display: flex;
+}
+
+.Grid-cell {
+  border: 1px solid #65b178 !important;
+  border-radius: 5px !important;
+  margin-left: 2%;
+  width: 30%;
+  height: 3.5rem;
+  text-align: center;
+  color: #65b178;
+  flex: 1;
+}
+
+.Grid-cell-select {
+  border: 1px solid #65b178 !important;
+  border-radius: 5px !important;
+  margin-left: 2%;
+  width: 30%;
+  height: 3.5rem;
+  text-align: center;
+  color: white;
+  flex: 1;
+  background-color: #1AAD19
+}
+
+.Grid-none{
+  flex: 1;
+   margin-left: 2%;
+}
+.juzhong{
+  margin-top:15%;
+
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

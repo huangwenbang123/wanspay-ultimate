@@ -1,0 +1,106 @@
+<!--搜索开始  -->
+
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="searchBtn" bindinput="inputTyping" />
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+</view>
+
+<!--搜索结束  -->
+
+<!--分类栏开始  -->
+<view class="find_nav" style="height: 6%;top: 6.5%;position:relative;margin-top:-11%;">
+  <view class="find_nav_left">
+    <view class="find_nav_list" style='width:100%'>
+      <view>
+        <block wx:if="categoryList!=''">
+          <view bindtap='all' class="{{categoryId == '' ? 'find_nav_cur' :'' }} find_nav_list_ul_li ">
+            <view class="fl">全部</view>
+          </view>
+        </block>
+
+        <block wx:for="{{categoryList}}" wx:for-index="index">
+          <view bindtap='fenlei' data-fenlei='{{categoryList[index].id}}' class="{{categoryList[index].id ==categoryId ? 'find_nav_cur':''  }} clearfix find_nav_list_ul_li">
+            <view class="fl">{{categoryList[index].name == null ?"":categoryList[index].name}}</view>
+          </view>
+        </block>
+
+      </view>
+    </view>
+  </view>
+</view>
+<!--分类栏结束  -->
+
+
+<view style="padding-bottom: 9%;visibility: hidden">
+</view>
+
+
+<view wx:for="{{storeList}}" wx:for-index="idx">
+
+  <view class='weui-panel  weui-panel_access' style="margin-top: 0px">
+    <view class="weui-panel__bd" id="{{storeList[idx].id}}" data-id="{{storeList[idx].id}}" bindtap='detailedMechantInfo'>
+      <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+        <view class="my_weui-media-box__hd">
+          <image class="weui-media-box__thumb" style="height: 78%;margin-top: 12%;" src="http://bus.sanppay.com/image/{{storeList[idx].photoImgPath}}">
+          </image>
+        </view>
+        <view class="weui-media-box__bd">
+          <view class="weui-media-box__title title">{{storeList[idx].storeName}}</view>
+          <block wx:if='{{storeList[idx].starLevel!=null}}'>
+            <view class="weui-media-box__desc">
+              <block wx:for="{{storeList[idx].starLevel}}" wx:for-index="index">
+                <block wx:if="{{index==1}}">
+                  <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/biankuangxing.png" class="img" style=" margin-left: 0%;width: 5%; height:13px;">
+                  </image>
+                </block>
+                <block wx:else>
+                  <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/biankuangxing.png" class="img" style="margin-left: 0%;width: 5% ;height:13px;">
+                  </image>
+                </block>
+              </block>
+            </view>
+          </block>
+          <view wx:else>
+            <view class="weui-media-box__desc">
+              <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/fiveStar1.png" style="width: 25%;height:13px;" class="img">
+              </image>
+            </view>
+          </view>
+          <!--心心结束  -->
+          <!--分类地区开始  -->
+          <view class="my_weui-media-box__desc" style='display:flex;'>
+            {{storeList[idx].categoryList}}
+            <view style="margin-left: 5%">
+              {{storeList[idx].area ==null ? "":storeList[idx].area}}
+            </view>
+          </view>
+          <!--分类地区结束  -->
+          <!--商户折扣开始  -->
+          <view class="zhekou">
+            <view wx:if="{{storeList[idx].discount}}">
+              <view class="weui-media-box__desc" style="color: red">万商卡买单折扣{{storeList[idx].discount ==null ? "" :storeList[idx].discount }}折</view>
+            </view>
+            <view wx:else>
+              <view class="weui-media-box__desc" style="color: red">万商支付推荐商户</view>
+            </view>
+          </view>
+          <!--商户折扣结束  -->
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--推荐商户结束  -->

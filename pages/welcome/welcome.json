@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {},
+    "navigationBarBackgroundColor": "#840F02",
+    "navigationBarTitleText": "万商支付",
+    "navigationBarTextStyle": "write"
+}

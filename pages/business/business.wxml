@@ -1,0 +1,47 @@
+<!--pages/business/business.wxml-->
+<view class="weui-grids" style="background: #FFFFFF">
+
+  <view data-title='1' bindtap='merchantsIn' class='weui-grid js_grid'>
+    <view class="weui-grid__icon">
+      <image  style='height:28px;width:28px;' src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/qygk.jpg">
+      </image>
+    </view>
+    <view class="weui-grid__label">
+      企业购卡
+    </view>
+  </view>
+
+   <view  data-title='2' bindtap='merchantsIn' class='weui-grid js_grid'>
+    <view class="weui-grid__icon">
+      <image  style='height:28px;width:28px;' src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/shrz.jpg">
+      </image>
+    </view>
+    <view class="weui-grid__label">
+      商户入驻
+    </view>
+  </view>
+
+    <view data-title='3' bindtap='merchantsIn' class='weui-grid js_grid'>
+    <view class="weui-grid__icon">
+      <image bindtap='sinopec'  style='height:28px;width:28px;' src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/kpdz.jpg">
+      </image>
+    </view>
+    <view class="weui-grid__label">
+      卡片定制
+    </view>
+  </view>
+
+    <view data-title='4' bindtap='merchantsIn' class='weui-grid js_grid'>
+    <view class="weui-grid__icon">
+      <image  style='height:28px;width:28px;' src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/ggzz.jpg">
+      </image>
+    </view>
+    <view class="weui-grid__label">
+      广告招租
+    </view>
+  </view>
+
+
+</view>
+
+

@@ -1,0 +1,62 @@
+		<view class="w640 ul-top02">
+
+
+
+		 <view class="weui-cells weui-cells_after-title user-screen clearfix">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入账号" maxlength="14" bindinput="mobileInput" bindblur='bindblurEvent' value='{{inputValue}}'/>
+                </view>
+            </view>
+        </view>
+
+
+<view class="weui-cells weui-cells_after-title user-screen clearfix">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请确认账号" maxlength="14" bindinput="mobile1Input" bindblur='bindblur1Event' value='{{input1Value}}'/>
+                </view>
+            </view>
+  </view>
+
+	
+
+
+<view class="weui-cells weui-cells_after-title user-screen clearfix">
+<view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder='{{placeValue}}' maxlength="11" bindinput="mobile2Input" value='{{amount}}' type='number' />
+                </view>
+                <view class="weui-cell__ft">
+                    <view class="weui-vcode-btn">{{teststr}}</view>
+                </view>
+            </view>
+</view>
+
+    
+			<view class="user-screen clearfix" hidden='{{selectFlag}}'>
+      			 
+			 <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">服务区</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
+                        <view class="weui-select weui-select_in-select-after">{{countries[countryIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+			</view>
+
+<ul class="card-fee clearfix">
+ <block wx:for="{{sallist}}" wx:for-index="idx">
+        <li bindtap="active" data-num="{{idx+1}}" class="{{active ==idx+1 ?'active':'' }}" >
+            <span   class="fee1">{{sallist[idx].fix}}{{gameInfo.unitName}}</span><span class="fee2">售价:{{sallist[idx].itemSalesPrice}}元 </span>
+        </li>
+  </block>
+    </ul>
+		<form bindsubmit="saveCar" report-submit='true' >  
+     <button class="card-btn red_black_btn"  form-type="submit">确定</button>
+    </form>
+</view >
+			

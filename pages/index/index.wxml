@@ -1,0 +1,258 @@
+<!--index.wxml-->
+
+
+<view class='weui-tab'>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+  <view style='box-sizing: border-box;height: 100%;'>
+    <!--头部搜索栏开始  -->
+    <view class="box-main">
+      <view class="radius-box" bindtap="saoyisao">
+        <image src="../../image/saofu.png" style="width: 34px;height: 34px;z-index: 99;margin-bottom: -34px;margin-left:20px;"></image>
+      </view>
+    </view>
+    <!--头部搜索栏结束  -->
+    <!--分类开始  -->
+
+    <view class='sort'>
+      <view bindtap='find' class="weui-tabbar__item" style="padding-top: 3%">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/newShop1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;" />
+        <view class="weui-tabbar__label" style="font-size: 12px;">商户大全</view>
+      </view>
+      <!-- <view bindtap='shangcheng' class="weui-tabbar__item" style="padding-top: 3%">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/wanshangshangcheng1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;">
+        </image>
+        <view class="weui-tabbar__label" style="font-size: 12px;">线上商城</view>
+      </view> -->
+      <!-- <view bindtap='bmfw' class="weui-tabbar__item" style="padding-top: 3%">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/newLift1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;" />
+        <view class="weui-tabbar__label" style="font-size: 12px;">便民服务</view>
+      </view> -->
+      <view bindtap='yyyx' class="weui-tabbar__item" style="padding-top: 3%">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/newPlay1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;" />
+        <view class="weui-tabbar__label" style="font-size: 12px;">影音游戏</view>
+      </view>
+
+      <view bindtap='charge' style="padding-top: 3%" href="javascript:;" class="weui-tabbar__item">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/cardCharge1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;"></image>
+        <view class="weui-tabbar__label" style="font-size: 12px;">卡片充值</view>
+      </view>
+
+      <view bindtap='integral' style="padding-top: 3%" href="javascript:;" class="weui-tabbar__item" onclick="location = '${base}/card/txjhQrRecharge.htm'">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/choujiang1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;">
+        </image>
+        <view class="weui-tabbar__label" style="font-size: 12px;">签到抽奖</view>
+      </view>
+
+    </view>
+
+
+    <view class="sort2">
+
+
+      <view bindtap='businessCooperation' style="padding-top: 3%" href="http://integral.sanppay.com/sign/index" class="weui-tabbar__item">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/newEat1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;">
+        </image>
+        <view class="weui-tabbar__label" style="font-size: 12px;">商务合作</view>
+      </view>
+
+      <view bindtap='kfdh' style="padding-top: 3%" href="tel:400-025-5788" class="weui-tabbar__item">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/wanshangkefu1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;">
+        </image>
+        <view class="weui-tabbar__label" style="font-size: 12px;">万商客服</view>
+      </view>
+
+
+
+      <view bindtap='businessCooperation' style="padding-top: 3%" href="http://integral.sanppay.com/sign/index" class="weui-tabbar__item">
+      
+      </view>
+
+      <view bindtap='kfdh' style="padding-top: 3%" href="tel:400-025-5788" class="weui-tabbar__item">
+     
+      </view>
+
+    </view>
+
+    <!--分类结束-->
+    <!--轮播图开始-->
+    <view class='carousel'>
+
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image style='height:100px;width:414px;' src="{{item}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--轮播图结束-->
+    <!--推荐商户开始-->
+    <view wx:for="{{storeList}}" wx:for-index="idx">
+      <view wx:if="{{idx==0}}">
+        <view class='weui-panel  weui-panel_access' style="margin-top: 0px">
+          <view class="weui-panel__hd">推荐商户</view>
+          <view class="weui-panel__bd" id='{{storeList[idx].id}}' data-id="{{storeList[idx].id}}" bindtap='detailedMechantInfo'>
+            <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+              <view class="my_weui-media-box__hd">
+                <image class="weui-media-box__thumb" style="height: 78%;margin-top: 12%;" src="http://bus.sanppay.com/image/{{storeList[idx].photoImgPath}}">
+                </image>
+              </view>
+              <view class="weui-media-box__bd">
+                <view class="weui-media-box__title title">{{storeList[idx].storeName}}</view>
+                <block wx:if='{{storeList[idx].starLevel!=null}}'>
+                  <view class="weui-media-box__desc">
+                    <block wx:for="{{storeList[idx].starLevel}}" wx:for-index="index">
+                      <block wx:if="{{index==1}}">
+                        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/biankuangxing.png" class="img" style="height:13px; margin-left:0%;width: 5%;">
+                        </image>
+                      </block>
+
+                      <block wx:else>
+                        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/biankuangxing.png" class="img" style="height:13px;margin-left: 0%;width: 5%">
+                        </image>
+                      </block>
+                    </block>
+                  </view>
+                </block>
+                <block wx:else>
+                  <view class="weui-media-box__desc">
+                    <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/fiveStar1.png" style="width: 25%;height:13px;" class="img">
+                    </image>
+                  </view>
+                </block>
+                <!--心心结束  -->
+                <!--分类地区开始  -->
+                <view class="my_weui-media-box__desc" style='display:flex;'>
+                  {{storeList[idx].categoryList}}
+                  <view style="margin-left:5%;">
+                    {{storeList[idx].area ==null ? "":storeList[idx].area}}
+                  </view>
+                </view>
+                <!--分类地区结束  -->
+                <!--商户折扣开始  -->
+                <view class="zhekou">
+                  <view wx:if="{{storeList[idx].discount}}">
+                    <view class="weui-media-box__desc" style="color: red">万商卡买单折扣{{storeList[idx].discount ==null ? "" :storeList[idx].discount }}折</view>
+                  </view>
+                  <view wx:else>
+                    <view class="weui-media-box__desc" style="color: red">万商支付推荐商户</view>
+                  </view>
+                </view>
+                <!--商户折扣结束  -->
+
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 否则  -->
+      <view wx:else>
+        <view class='weui-panel  weui-panel_access' style="margin-top: 0px">
+          <view class="weui-panel__bd" id="{{storeList[idx].id}}" data-id="{{storeList[idx].id}}" bindtap='detailedMechantInfo'>
+            <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+              <view class="my_weui-media-box__hd">
+                <image class="weui-media-box__thumb" style="height: 78%;margin-top: 12%;" src="http://bus.sanppay.com/image/{{storeList[idx].photoImgPath}}">
+                </image>
+              </view>
+              <view class="weui-media-box__bd">
+                <view class="weui-media-box__title title">{{storeList[idx].storeName}}</view>
+                <block wx:if='{{storeList[idx].starLevel!=null}}'>
+                  <view class="weui-media-box__desc">
+                    <block wx:for="{{storeList[idx].starLevel}}" wx:for-index="index">
+                      <block wx:if="{{index==1}}">
+                        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/biankuangxing.png" class="img" style=" margin-left: 0%;width: 5%; height:13px;">
+                        </image>
+                      </block>
+                      <block wx:else>
+                        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/biankuangxing.png" class="img" style="margin-left: 0%;width: 5% ;height:13px;">
+                        </image>
+                      </block>
+                    </block>
+                  </view>
+                </block>
+                <view wx:else>
+                  <view class="weui-media-box__desc">
+                    <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/fiveStar1.png" style="width: 25%;height:13px;" class="img">
+                    </image>
+                  </view>
+                </view>
+                <!--心心结束  -->
+                <!--分类地区开始  -->
+                <view class="my_weui-media-box__desc" style='display:flex;'>
+                  {{storeList[idx].categoryList}}
+                  <view style="margin-left: 5%">
+                    {{storeList[idx].area ==null ? "":storeList[idx].area}}
+                  </view>
+                </view>
+                <!--分类地区结束  -->
+                <!--商户折扣开始  -->
+                <view class="zhekou">
+                  <view wx:if="{{storeList[idx].discount}}">
+                    <view class="weui-media-box__desc" style="color: red">万商卡买单折扣{{storeList[idx].discount ==null ? "" :storeList[idx].discount }}折</view>
+                  </view>
+                  <view wx:else>
+                    <view class="weui-media-box__desc" style="color: red">万商支付推荐商户</view>
+                  </view>
+                </view>
+                <!--商户折扣结束  -->
+
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--推荐商户结束  -->
+
+  </view>
+
+
+</view>
+
+
+
+
+<!-- <view class="weui-flex" style="background: #686F78">
+
+    <view class="weui-flex__item">
+      <view>
+        <text class="index-head-icon iconfont icon-saoyisao" bindtap="saoyisao" ></text>
+        <text class="userinfo-nickname index-head-icon-ziti"  >扫一扫</text>
+      </view>
+
+      <view class="show">{{show}}</view>
+    </view>
+
+    <view class="weui-flex__item">
+      <view class="userinfo">
+        <block>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
+    </view>
+
+    <view class="weui-flex__item">
+     <text class="index-head-icon iconfont icon-yiban" bindtap="chargeInfo" ></text>
+        <text class="userinfo-nickname index-head-icon-ziti" style='margin-left:28%' >交易记录</text>
+    </view>
+
+  </view> -->
+
+
+<!-- <modal hidden="{{}}" title="设置小程序的支付密码" confirm-text="确认" cancel-text=""   bindconfirm="payConfirm">
+      <view class="weui-cell weui-cell_input" >
+       <view class="weui-cell__bd">
+          <input style='text-align:center;' bindinput="PwdInput" value="{{Pwd}}" name='Pwd' class="weui-input" type='number'  maxlength='6' placeholder="请设置您的小程序支付密码" />
+        </view>
+     
+      </view> 
+    </modal> -->
+
+<modal hidden="{{shouquan}}" title="获取用户信息授权" confirm-text="" cancel-text="" bindconfirm="">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__bd">
+      <button bindtap="changeLoading" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+    </view>
+  </view>
+</modal>

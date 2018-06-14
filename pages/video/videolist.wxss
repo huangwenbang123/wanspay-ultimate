@@ -1,0 +1,39 @@
+/* pages/video/videolist.wxss */
+    page{
+				line-height:3 ;
+        background: #E8E8E8
+			}
+			
+			.sort{
+			height: 14em;
+			}
+			
+			.weui-grid__icon .icon{
+				fill: orangered;
+			}
+			
+			
+			.weui-tabbar__icon{
+				padding: 50% 30px 10px 30px;
+				width: 40px;
+				height: 40px;	
+			}
+			
+			.weui-tabbar__label{
+				font-size: 12px;
+				color: white;
+			}
+			
+			.weui-tabbar__icon .icon{
+				fill: white;font-size: 40px;
+			}
+			.weui-tabbar__label{
+				font-size: 12px;
+				color: white;
+			}
+      .videoimage{
+        position: absolute;
+        left: 43px;
+        width: 40px;
+        height: 40px;
+      }

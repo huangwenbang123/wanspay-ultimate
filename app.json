@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/preorder/preorder",
+    "pages/prepay/prepay",
+    "pages/prepay/msg_success",
+    "pages/prepay/msg_fail",
+    "pages/logs/logs",
+    "pages/component/component",
+    "pages/orderInfo/orderInfo",
+    "pages/setPassword/setPassword",
+    "pages/detailedMechant/detailedMechant",
+    "pages/find/find",
+    "pages/bmfw/bmfw",
+    "pages/bmfw/huafei/huafei",
+    "pages/bmfw/liuliang/liuliang",
+    "pages/bmfw/sinopec/sinopec",
+    "pages/bmfw/paymentInstitutions/paymentInstitutions",
+    "pages/integral/integral",
+    "pages/business/business",
+    "pages/business/qygk/qygk",
+    "pages/business/merchantsIn/merchantsIn",
+    "pages/game/gamelist",
+    "pages/game/detailGame",
+    "pages/my/my",
+    "pages/bmfw/paymentInstitutions/charge/charge",
+    "pages/pay/pay",
+    "pages/card/card",
+    "pages/translog/translog",
+    "pages/addCard/addCard",
+    "pages/changeCardSecret/changeCardSecret",
+    "pages/component1/component",
+    "pages/component2/component",
+    "pages/videogame/videogame",
+    "pages/video/videoPay",
+    "pages/video/videolist",
+    "pages/video/detailVideo"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "万商支付",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "color": "#9B9B9B",
+    "selectedColor": "#4A90E2",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./image/new_logo.png",
+        "selectedIconPath": "./image/new_logo.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "./image/huisefaxian.png",
+        "selectedIconPath": "./image/huisefaxian.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./image/huisewode.png",
+        "selectedIconPath": "./image/huisewode.png"
+      }
+    ]
+  }
+}

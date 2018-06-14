@@ -1,0 +1,19 @@
+<view class="weui-grids" style='background:#FFFFFF'>
+
+<view wx:for="{{videoList}}" wx:for-index="idx">
+<view  class="weui-grid js_grid" id="{{videoList[idx].firmId}}" bindtap='detailedVideInfo'>
+				<view class="weui-grid__icon"  >
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/jusutong/video/{{videoList[idx].firmId}}.png"  class='videoimage'>
+        </image>
+					
+				</view>
+				<view class="weui-grid__label">
+					{{videoList[idx].firmName}}
+				</view>
+		</view>
+
+  </view>
+    </view>
+
+
+    

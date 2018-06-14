@@ -1,0 +1,51 @@
+<!--pages/bmfw/huafei/huafei.wxml-->
+
+
+
+<view style='margin-top:3%;' class="weui-panel weui-panel_access">
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view style='line-height:5;font-size:18px;' class="weui-media-box__desc">
+          <input value='{{phoneNum}}' placeholder-style="color:#65B178;font-size:18px" placeholder="请输入手机号码" type='number' maxlength='13' bindinput="inputChange">
+          </input>
+        </view>
+        <view style='font-size:12px;color:red;height:20px;' class="weui-media-box__title">{{msg}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+      <view style='font-size:12px;color:gray;' class="weui-media-box__title weui-media-box__title_in-text">充话费</view>
+      <view class="weui-media-box__desc" style='display:flex'>
+        
+        <view data-flag='{{flag}}' bindtap='toCharge' data-amount='100' class='{{ flag ? "biankuang2":"biankuang"}} '>
+          <view class='juzhong'>
+            <view>
+              50元
+            </view>
+            <view>
+              售价50元
+            </view>
+          </view>
+        </view>
+
+        <view class='biankuang' data-flag='{{flag}}' data-amount='100' bindtap='toCharge' class='{{ flag ? "biankuang2":"biankuang"}} '>
+          <view class='juzhong'>
+            <view>
+              100元
+            </view>
+            <view>
+              售价100元
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+    </view>
+  </view>
+
+</view>

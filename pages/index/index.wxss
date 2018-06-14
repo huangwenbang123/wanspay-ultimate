@@ -1,0 +1,305 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: white;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.saoma {
+  height: 40px;
+  width: 110px;
+  line-height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  background-color: #999;
+  text-align: center;
+}
+
+.show {
+  width: 100%;
+  color: #666;
+  background-color: #fff;
+  height: auto;
+}
+
+.index-head-icon {
+  font-size: 30px;
+  display: flex;
+  margin-left: 40%;
+  margin-top: 10%;
+  color: white;
+}
+
+.index-head-icon-ziti {
+  margin-left: 34%;
+  margin-top: 5%;
+}
+
+.red_black_btn {
+  background-image: linear-gradient(120deg, #8e0e00 0%, #1f1c18 200%);
+}
+
+.demos-title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+.demos-sub-title {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.demos-header {
+  padding: 35px 0;
+}
+
+.demos-content-padded {
+  padding: 15px;
+}
+
+.demos-second-title {
+  text-align: center;
+  font-size: 24px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+.icon {
+  /* 通过设置 font-size 来改变图标大小 */
+  font-size: 30px;
+  width: 1em;
+  height: 1em;
+  /* 图标和文字相邻时，垂直对齐 */
+  vertical-align: -0.15em;
+  /* 通过设置 color 来改变 SVG 的颜色/fill */
+  fill: #09bb07;
+  /* path 和 stroke 溢出 viewBox 部分在 IE 下会显示
+       normalize.css 中也包含这行 */
+  overflow: hidden;
+}
+
+.weui-grid__label {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.livingpay_title {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.68rem;
+  color: #8b8682;
+}
+
+.my_weui-media-box__hd {
+  margin-right: 0.8em;
+  width: 80px;
+  height: 80px;
+  line-height: 60px;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+.weui-media-box__desc {
+  padding-bottom: 0.3em;
+}
+
+.weui-media-box__desc.oranger {
+  color: orangered;
+}
+
+.weui-media-box__title.title {
+  font-size: 15px;
+  padding-bottom: 0.2em;
+}
+
+.weui-media-box__desc .img {
+  width: 17%;
+}
+
+.zhekou {
+  padding-top: 0.5em;
+  margin-top: 0.75em;
+  border-top: 1px dotted #d9d9d9;
+}
+
+.newWechat-top {
+  display: flex;
+  align-items: baseline;
+  background-color: white;
+}
+
+.sort {
+  display: flex;
+  padding-top: 2%;
+  -webkit-justify-content: space-around;
+  background-color: white;
+}
+
+.sort2 {
+  display: flex;
+  padding-bottom: 3%;
+  -webkit-justify-content: space-around;
+  background-color: white;
+}
+
+.carousel {
+  margin: 5px 0 5px;
+  height: 15%;
+  background-color: white;
+}
+
+.gpa {
+  background-color: #e8e8e8;
+  height: 1%;
+  display: flex;
+}
+
+.main-pic {
+  width: 20%;
+  height: 20%;
+}
+
+.star {
+  width: 25px;
+  height: 25px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.area {
+}
+
+.info {
+  padding: 5px 0;
+  background: #fdeae8;
+  color: #f96430;
+}
+
+.more {
+  margin-top: 5px;
+  border-top: 1px solid silver;
+  padding: 5px 0;
+}
+
+.fontStyle {
+  font-family: ”微软雅黑”;
+}
+
+.my_weui-tabbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 500;
+  bottom: 0;
+  width: 100%;
+  background-color: #f7f7fa;
+}
+
+.active {
+  color: red;
+}
+
+.my_weui-panel {
+  margin-top: 5px;
+}
+
+.my_weui-media-box__desc {
+  color: #999;
+  font-size: 13px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.box-main {
+  width: 100%;
+  height: 4%;
+  /* background-image: linear-gradient(120deg, #8E0E00 0%, #1F1C18 250%); */
+  background: #8b0e01;
+  /*background: #8E0E00;  !* fallback for old browsers *!*//*background: -webkit-linear-gradient(120deg, #8E0E00 0%, #1F1C18 200%);  !* Chrome 10-25, Safari 5.1-6 *!*//*background: linear-gradient(to right, #8E0E00, #1F1C18); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+  position: relative;
+  margin-top: 0;
+  top: 0;
+}
+
+.radius-box {
+  width: 70px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0%;
+  /* background-image: linear-gradient(120deg, #7C1004 0%, #6A1208 250%); */
+  background: #8b0e01;
+  /*background: #8E0E00;  !* fallback for old browsers *!*//*background: -webkit-linear-gradient(120deg, #8E0E00 0%, #1F1C18 200%);  !* Chrome 10-25, Safari 5.1-6 *!*//*background: linear-gradient(to right, #60140A, #4D160E); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+}
+
+.weui-media-box__bd {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  min-width: 0;
+}
+
+.weui-tabbar__item {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 5px 0 0;
+  font-size: 0;
+  color: #999;
+  text-align: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+page {
+  background-color: #e8e8ed;
+  font-size: 16px;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  font-family: '微软雅黑', Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', Arial, sans-serif;
+  height: 100%;
+}

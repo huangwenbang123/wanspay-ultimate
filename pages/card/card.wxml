@@ -1,0 +1,88 @@
+<scroll-view scroll-x="true" scroll-left="{{item.scrollLeft}}" wx:for="{{cardlist}}" style='background-color:white'>
+  <view class="cell_2_body" >
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-cell">
+          <view class="weui-cell__bd weui-cell__bd1 backcolor{{item.partcard}} wansCard">
+            <a href="javascript:void(0);">
+              <view class="{{item.partcard=='5180025180' ? 'wanslogo5180025180':'wanslogo'}}">
+                <image class="weui-media-box__thumb weui-media-box__thumb1" style="height: 1.5rem;width:7rem" src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/{{item.partcard=='5180025180' ?'sanpowerji':'wanslogo'}}.png"></image>
+              </view>
+              <view class="clearfix" style="float:right;width:100%">
+
+                <view class="clearfix-left">
+                  <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/{{item.partcard}}.png" class="wans{{item.partcard}}"></image>
+                </view>
+
+                <view class="{{item.partcard=='5180025180' ? 'cardNumberBlack':'cardNumberWhite'}}">
+                  <view class='shandNum'> {{item.card}} </view>
+                  <image class="shanP" src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/shangd.gif"></image>
+                </view>
+
+              </view>
+              <view class="xiabiaoLogo">
+                <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/{{item.partcard=='5180025180' ? 'wansclogo':'peoplebank'}}.png" class="{{item.partcard=='5180025180' ? 'xiabiaoLogo5180025180':'xiabiaoLogoOthers'}}"></image>
+              </view>
+              <view class="{{item.partcard=='5180025180' ? 'balanceB':'balanceW'}}">
+                {{item.bal}}
+              </view>
+            </a>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cell_2_cancel" bindtap="cancel"  data-index="{{index}}">密码修改</view>
+    <view class="cell_2_delete" bindtap="delete" data-index="{{index}}">删除</view>
+  </view>
+
+</scroll-view>
+
+<view >
+<view class="weui-cell" style="border-bottom:1px solid ;" bindtap='addCard'>
+ 
+    <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/add.png" alt="" style="width:17px;height:17px;margin-right:5px;display:block;"></image>
+
+  <view class="weui-cell__bd">
+    <p>添加万商卡</p>
+  </view>
+
+</view>
+
+<view style="height: 20px;"></view>
+
+<view style="height: 40px;text-align:center;" bindtap='shenqing'>
+    <view style="font-size: 16px;color: black;width:100%">申请万商卡
+      <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/shenqingj.png" alt="" style="width:17px;height:12px;margin-top: -3px;"></image>
+    </view>
+</view>
+</view>
+
+  <modal hidden="{{modalCardput2}}" title="" confirm-text="" cancel-text="" bindcancel="payCancel" bindconfirm="payConfirm">
+    <!-- 标题  -->
+    <view class="weui-flex" style="margin-top: -7%;">
+      <view bindtap='colsePwdPay' >
+        <view  style='text-align:left;font-size:25px;'>×</view>
+      </view>
+      <view class="weui-flex__item" style='text-align:center;margin-top:6px;'>
+        <view class="placeholder" style='color:#0A0A0A;font-weight:800' >请输入卡号密码</view>
+      </view>
+    </view>
+    <view style='border-bottom:1px green solid;width:120%;margin-left:-10%;' >
+    </view>
+    <view>
+   
+      <view class='weui-flex' style='margin-bottom:-5%;'>
+        <view class="weui-flex__item">
+          <view class="preorder-placeholder">{{deletecard}}</view>
+        </view>
+      </view>
+    </view>
+   
+
+    <view style='text-align:center;margin-top:30rpx;'>
+      <paySix bindvalueSix="valueSix" input_value="{{inputData.input_value}}" value_length="{{inputData.value_length}}" isNext="{{inputData.isNext}}" focus_class="{{inputData.focus_class}}" value_num="{{inputData.value_num}}" height="{{inputData.height}}" width="{{inputData.width}}"
+        see="{{inputData.see}}" interval="{{inputData.interval}}">
+      </paySix>
+    </view>
+
+  </modal>

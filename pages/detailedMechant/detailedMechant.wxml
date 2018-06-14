@@ -1,0 +1,108 @@
+<view class='weui-tab'>
+  <view wx:if="{{store==''}}">
+    <view style='margin-top:50%;margin-left:40%;color:#AAAAAA;'>
+      光秃秃一片~
+    </view>
+  </view>
+  <view wx:else class="weui-panel weui-panel_access" style='margin-top:10px'>
+
+    <view class="weui-panel__bd">
+      <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg" style="margin-top: -0.5em">
+        <!--图片开始  -->
+        <view class="my_weui-media-box__hd" style="margin-bottom: -1.8em;">
+          <image class="weui-media-box__thumb" style="height: 75%; " src="{{imgSrc}}"></image>
+        </view>
+        <!--图片结束  -->
+        <!--介绍开始  -->
+        <view class="weui-media-box__bd">
+          <view class="weui-media-box__title title" id="titleName" style="font-weight: bold;    padding-bottom: 0px;">{{store.data.storeName ==null ? "" :store.data.storeName }}</view>
+          <view wx:if='{{store.starLevel!=null}}'>
+            <view class="weui-media-box__desc" style='width:291px;'>
+              <view wx:for="{{store.starLevel}}" wx:for-index="index">
+                <view wx:if="{{index==1}}">
+                  <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/biankuangxing.png" class="img" style=" margin-left: 0%;width: 5%;">
+                  </image>
+                </view>
+
+                <view wx:else>
+                  <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/biankuangxing.png" class="img" style="margin-left: -1%;width: 5%">
+                  </image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:else>
+            <view class="weui-media-box__desc" style='width:291px;margin-top:2%;'>
+              <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/fiveStar1.png" style="width: 25%;height:13px;" class="img">
+              </image>
+            </view>
+          </view>
+          <!--地区分类开始  -->
+          <view class="weui-media-box__desc" style="margin-top: 2%;margin-bottom: -2%;">
+            <view wx:if="{{store.data.category=='10020'}}">
+              商超百货
+            </view>
+            <view wx:elif="{{store.data.category=='10023'}}">
+              餐饮美食
+            </view>
+            <view wx:elif="{{store.data.category=='10025'}}">
+              休闲娱乐
+            </view>
+            <view wx:elif="{{store.data.category=='10027'}}">
+              生活服务
+            </view>
+
+
+            <view style="padding-left: 5%">
+              {{store.area ==null ? "" :store.data.area}}
+            </view>
+          </view>
+          <!--地区分类结束  -->
+          <!--折扣开始  -->
+          <view wx:if="{{store.discount ==''}}">
+            <view class="weui-media-box__desc" style="color: red;padding-bottom: 0px;margin-top: 3%;">万商卡买单折扣{{store.discount == null ?"":store.discount}}折
+            </view>
+          </view>
+          <view wx:else>
+            <view class="weui-media-box__desc" style="color: red;margin-top: 4%;">万商支付推荐商户</view>
+          </view>
+          <!--折扣结束  -->
+
+        </view>
+        <!--介绍结束  -->
+      </view>
+    </view>
+  </view>
+  <!--商户详情开始  -->
+  <view style="display: flex;-webkit-justify-content: space-around;padding-top: 3%;background:#fff;">
+    <!--商户地图开始  -->
+    <view style="display: flex;width:65%;"bindtap="map">
+      <view style="margin-top:-1%;width: 5%;margin-left:0%;" class="iconfont icon-weibiaoti-3" aria-hidden="true"  >
+      </view>
+      <view style="font-size: 13px;margin-left: 2%;width: 65%;">
+        地址：{{store.data.locationDesc ==null ?"" :store.data.locationDesc}}
+      </view>
+    </view>
+    <view style="padding-left:5%;padding-top: 1%;width: 15%;" data-phone = "{{store.data.phone}}" bindtap='makePhone'>
+      <view >
+        <view class="iconfont icon-telephone" aria-hidden="true" style="width: 25%;color: red;">
+          <use xlink:href="#icon-dianhua"></use>
+        </view>
+      </view>
+    </view>
+    <!--商户地图结束  -->
+  </view>
+  <!--商户介绍开始  -->
+  <view class="weui-panel weui-panel_access" style='margin-top:1px;'>
+    <view class="weui-panel__hd" style="padding: 10px;">商户介绍</view>
+    <view class="weui-panel__bd">
+      <view href="javascript:void(0);" style="font-size: 12px" class="weui-media-box weui-media-box_appmsg">
+        {{store.data.detail ==null?"":store.data.detail}}
+      </view>
+    </view>
+  </view>
+  <!--商户介绍结束  -->
+  <!--商户详情结束  -->
+
+
+</view>

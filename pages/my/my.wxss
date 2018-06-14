@@ -1,0 +1,31 @@
+/* pages/my/my.wxss */
+
+.weui-grid{
+  width: 50%;
+        }
+page{
+    line-height:3 ;
+    background: #E8E8E8;
+}
+.my_weui-tabbar {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	position:fixed;
+	bottom:0;
+	z-index: 500;
+	bottom: 0;
+	width: 100%;
+	background-color: #f7f7fa
+}
+.weui-tabbar__item{
+  display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    padding: 5px 0 0;
+    font-size: 0;
+    color: #999;
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

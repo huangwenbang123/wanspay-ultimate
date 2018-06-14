@@ -1,0 +1,171 @@
+<!--pages/pay/pay.wxml-->
+<view class="page">
+  <!--有卡支付-指纹支付  -->
+  <modal hidden="{{modalCardput}}" title="" confirm-text="" cancel-text="" bindcancel="payCancel" bindconfirm="payConfirm">
+    <view class="weui-flex" style="margin-top: -7%;">
+      <view bindtap='colsePrintPay' >
+        <view  style='text-align:left;font-size:25px;'>×</view>
+      </view>
+      <view class="weui-flex__item" style='margin-left:25%;'>
+        <view class="placeholder" style='color:#0A0A0A;font-weight:800' >支付</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder" bindtap="usePwd" style='color:#1C86EE;text-align:right;' >使用密码</view>
+      </view>
+    </view>
+    <view style='border-bottom:1px green solid;width:120%;margin-left:-10%;' >
+    </view>
+    <view>
+      <view class='weui-flex' style='margin-bottom:-7%;'>
+        <view class="weui-flex__item">
+          <view class="placeholder" style='color:#0A0A0A'> {{sellerName}}</view>
+        </view>
+      </view>
+      <view class='weui-flex' style='margin-bottom:-5%;'>
+        <view class="weui-flex__item">
+          <view class="preorder-placeholder"> ￥{{amount}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title" style='margin-top:2%;background-color:#FAFAFC'>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">付款卡</view>
+        </view>
+        <view class="weui-cell__bd" style='margin-left:-10%;'>
+          <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
+            <view class="weui-select weui-select_in-select-after" style='border-right:0px;font-size:12px;'>{{countries[countryIndex]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="" style='margin-top:4%;'>
+      <button style='width:90%;' class="weui-btn" type="primary" bindtap="checkIsFingerPrint">确认支付</button>
+    </view>
+  </modal>
+
+
+  <!--有卡支付 密码框支付  -->
+  <modal hidden="{{modalCardput2}}" title="" confirm-text="" cancel-text="" bindcancel="payCancel" bindconfirm="payConfirm">
+    <!-- 标题  -->
+    <view class="weui-flex" style="margin-top: -7%;">
+      <view bindtap='colsePwdPay' >
+        <view  style='text-align:left;font-size:25px;'>×</view>
+      </view>
+      <view class="weui-flex__item" style='margin-left:-2%;'>
+        <view class="placeholder" style='color:#0A0A0A;font-weight:800' >请输入万商卡密码</view>
+      </view>
+    </view>
+    <view style='border-bottom:1px green solid;width:120%;margin-left:-10%;' >
+    </view>
+    <view>
+      <view class='weui-flex' style='margin-bottom:-7%;'>
+        <view class="weui-flex__item">
+          <view class="placeholder" style='color:#0A0A0A'> {{sellerName}}</view>
+        </view>
+      </view>
+      <view class='weui-flex' style='margin-bottom:-5%;'>
+        <view class="weui-flex__item">
+          <view class="preorder-placeholder"> ￥{{amount}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title" style='margin-top:2%;background-color:#FAFAFC'>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">付款卡</view>
+        </view>
+        <view class="weui-cell__bd" style='margin-left:-10%;'>
+          <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
+            <view class="weui-select weui-select_in-select-after" style='border-right:0px;font-size:12px;'>{{countries[countryIndex]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view style='text-align:center;margin-top:30rpx;'>
+      <paySix bindvalueSix="valueSix" input_value="{{inputData.input_value}}" value_length="{{inputData.value_length}}" isNext="{{inputData.isNext}}" focus_class="{{inputData.focus_class}}" value_num="{{inputData.value_num}}" height="{{inputData.height}}" width="{{inputData.width}}"
+        see="{{inputData.see}}" interval="{{inputData.interval}}">
+      </paySix>
+    </view>
+  </modal>
+
+
+  <modal hidden="{{modalNoCardput}}" title="" confirm-text="" cancel-text="" bindcancel="payCancel" bindconfirm="payConfirm">
+   <view class="weui-flex" style="margin-top: -7%;">
+      <view bindtap='closeNoCardModal' >
+        <view  style='text-align:left;font-size:25px;'>×</view>
+      </view>
+      <view class="weui-flex__item" style='margin-left:-6%;'>
+        <view class="placeholder" style='color:#0A0A0A;font-weight:800' >支付</view>
+      </view>
+    </view>
+    <view style='border-bottom:1px green solid;width:120%;margin-left:-10%;' >
+    </view>
+    <view>
+      <view class='weui-flex' style='margin-bottom:-7%;'>
+        <view class="weui-flex__item">
+          <view class="placeholder" style='color:#0A0A0A'> {{sellerName}}</view>
+        </view>
+      </view>
+      <view class='weui-flex' style='margin-bottom:-5%;'>
+        <view class="weui-flex__item">
+          <view class="preorder-placeholder"> ￥{{amount}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title" style='margin-top:2%;background-color:#FAFAFC'>
+    </view>
+
+    <view class="weui-cell weui-cell_input" data-cardNumInputCss='1'>
+      <view class="weui-cell__hd">
+        <view style='width:85px;' class="weui-label">卡号:</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input bindinput="cardNumInput" name='cardNum' class="weui-input" type='number' maxlength='19' placeholder="请输入万商卡卡号" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input  " data-cardPwdInputCss='1'>
+      <view class="weui-cell__hd">
+        <view style='width:85px;' class="weui-label">密码:</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input bindinput="cardPwdInput" class="weui-input" name='cardPwd' type='number' password='true' maxlength='6' placeholder="请输入万商卡密码" />
+      </view>
+      <view class="weui-cell__ft">
+      </view>
+    </view>
+
+    <!-- <view class="weui-cell weui-cell_input" data-payPwdInputCss='1'>
+      <view class="weui-cell__hd">
+        <view style='width:85px;' class="weui-label">支付密码:</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input bindinput="payPwdInput" class="weui-input" name='payPwd' type='number' password='true' maxlength='6' placeholder="请输入小程序支付密码" />
+      </view>
+      <view class="weui-cell__ft">
+      </view>
+    </view> -->
+
+
+    <view class="weui-cell weui-cell_input">
+      <checkbox-group bindchange="checkboxChange">
+        <label class="weui-cell__hd" style='display:flex;margin-top:8px;' wx:for="{{checkboxItems}}" wx:key="value">
+          <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+          <view class="weui-cell__hd weui-check__hd_in-checkbox">
+            <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+            <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+          </view>
+          <view class="weui-cell__bd">{{item.name}}</view>
+        </label>
+      </checkbox-group>
+    </view>
+
+    <view class="" style='margin-top:4%;'>
+      <button style='width:90%;' class="weui-btn" type="primary" bindtap="noCardPay">确认支付</button>
+    </view>
+  </modal>
+  </view>

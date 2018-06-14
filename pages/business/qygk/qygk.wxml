@@ -1,0 +1,48 @@
+<view class="w640 ul-top02">
+
+  <view class="weui-cells weui-cells_after-title user-screen clearfix">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入购卡者姓名" maxlength="11" bindinput="name" value='{{name}}' />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title user-screen clearfix">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" type='number' placeholder="请输入联系方式" maxlength="11" bindinput="phone" bindblur='bindblur1Event' value='{{phone}}' />
+      </view>
+    </view>
+  </view>
+
+  <ul class="card-fee clearfix">
+    <li>
+      <span data-balance='200' class="fee1">200元</span>
+      <input style='font-size:0.45rem' type='number' maxlength="3" placeholder='请输入购买数量' bindinput="200" bindblur='bindblur1Event200' value='{{num_200}}' />
+    </li>
+    <li bindtap='500'>
+      <span data-balance='500' class="fee1">500元</span>
+      <input style='font-size:0.45rem' type='number' maxlength="3" placeholder='请输入购买数量' bindinput="500" bindblur='bindblur1Event500' value='{{num_500}}' />
+    </li>
+    <li bindtap='1000'>
+      <span data-balance='1000' class="fee1">1000元</span>
+      <input style='font-size:0.45rem' type='number' maxlength="3" placeholder='请输入购买数量' bindinput="1000" bindblur='bindblur1Event1000' value='{{num_1000}}' />
+    </li>
+    <li bindtap='2000'>
+      <span data-balance='2000' class="fee1">2000元</span>
+      <input style='font-size:0.45rem' type='number' maxlength="3" placeholder='请输入购买数量' bindinput="2000" bindblur='bindblur1Event2000' value='{{num_2000}}' />
+    </li>
+    <li bindtap='5000'>
+      <span data-balance='5000' class="fee1">5000元</span>
+      <input style='font-size:0.45rem' type='number' maxlength="3" placeholder='请输入购买数量' bindinput="5000" bindblur='bindblur1Event5000' value='{{num_5000}}' />
+    </li>
+    <li bindtap='other'>
+        <input style='font-size:0.45rem;height:2.7rem;padding-top:10%;' type='digit' maxlength="7" placeholder='自定义面额' bindinput="otherAmount" bindblur='bindblur1EventOtherAmount' value='{{num_otherAmount}}' />
+      <input style='font-size:0.45rem' type='number' maxlength="3" placeholder='请输入购买数量' bindinput="other" bindblur='bindblur1EventOther' value='{{num_other}}' />
+    </li>
+  </ul>
+
+  <span class="card-btn red_black_btn" bindtap="sendMsg">确定</span>
+
+</view>

@@ -1,0 +1,29 @@
+/* pages/bmfw/huafei/huafei.wxss */
+
+page {
+  background-color: #f4f4f4;
+  font-size: 16px;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.biankuang {
+  border: 1px solid #ccc !important;
+  border-radius: 5px !important;
+  margin-left: 2%;
+  width: 30%;
+  height: 3.5rem;
+  text-align: center;
+}
+.biankuang2 {
+  border: 1px solid #65B178 !important;
+  border-radius: 5px !important;
+  margin-left: 2%;
+  width: 30%;
+  height: 3.5rem;
+  text-align: center;
+  color: #65B178;
+}
+.juzhong{
+  margin-top:11%;
+
+}

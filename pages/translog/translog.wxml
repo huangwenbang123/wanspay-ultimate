@@ -1,0 +1,98 @@
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_select" >
+    <view class="weui-cell__bd">
+      <picker bindchange="bindAccountChange" value="{{accountIndex}}" range="{{cardlist}}">
+        <view class="weui-select" style='padding-top:10px;border-right:none'>
+
+          <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/little{{photonum}}.png" style='width:45px;height:33px' />
+          <view style='position:absolute;top:7px;left:23%'>卡号:{{cardlist[accountIndex]}}</view>
+
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view class="card-search-screen clearfix pos-relative"  style="background: #fff;border-top:none" bindtap='typehide'>
+  <view style='padding-left:14px;display:inline'>
+  {{startdata}}
+  </view>
+    <view  style='position:absolute;right:14px;display:inline'>
+  <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/calendar.png" style='width:16px;height:16px' />
+  </view>
+
+</view>
+
+ <!-- date开始 -->
+
+<view style='display:{{noneorblock}}'>
+<view class="selected_date" >
+  <view bindtap="preMonth">
+    <image class="select_icon" src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/left.png"></image>
+  </view>
+  <view style='text-align:center;'>{{curYear+'-'+curMonth}}</view>
+  <view style="text-align:right;" bindtap="nextMonth">
+    <image class="select_icon" src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/right.png"></image>
+  </view>
+</view>
+<view class="calendar_panel">
+  <view class="calendar_box">
+    <view class="weekday_label">日</view>
+    <view class="weekday_label">一</view>
+    <view class="weekday_label">二</view>
+    <view class="weekday_label">三</view>
+    <view class="weekday_label">四</view>
+    <view class="weekday_label">五</view>
+    <view class="weekday_label">六</view>
+  </view>
+  <view class="calendar_box" wx:for="{{dateList}}" wx:for-item="week">
+    <view class="weekday_label" wx:for="{{week}}">
+      <text class="{{item.value==selectedDate?'active_date':''}}" bindtap="selectDate" data-date="{{item}}">{{item.date}}</text>
+    </view>
+  </view>
+</view>
+<view class="show_box">请选择开始结束日期</view>
+</view>
+
+
+<view class='weui-form-preview' style="display:{{noneorblock=='none' ? 'block':'none'}}"></view>
+
+ <!-- date结束 -->
+
+<view class="page" >
+  <view wx:if="{{totalRows==0}}">
+    <view style='margin-top:50%;margin-left:40%;color:#AAAAAA;'>
+      光秃秃一片~
+    </view>
+  </view>
+  <view wx:else>
+    <view wx:for="{{orderList}}" wx:for-index="idx">
+     
+        <view class="page__bd no-padding-bottom">
+          <view class="weui-form-preview" style='margin-bottom:0px'>
+            <view class="weui-form-preview__hd">
+              <view class="weui-form-preview__item weui-flex weui-form-preview-top">
+                <view class="weui-flex__item" style='text-align:left;'>
+                 
+                    {{orderList[idx].shopNm}}
+                 
+                  <view style='margin-top:-10%;font-size:13px;color:#999;'>
+                    {{orderList[idx].txnTime}}
+                  </view>
+                </view>
+                <view class="weui-flex__item" style='margin:auto;'>¥ {{orderList[idx].txnAmt}}
+                <view style='margin-top:-10%;font-size:13px;color:#999;'>
+                    {{orderList[idx].txnSt}}
+                  </view>
+                </view>
+                 
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <button class="card-btn red_black_btn" bindtap="saveCar">{{clickevent}}</button>
+  </view>
+</view>
+	

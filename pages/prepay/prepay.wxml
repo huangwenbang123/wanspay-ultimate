@@ -1,0 +1,83 @@
+<view class='empty_tip'>
+  <view class="page" style='padding-top:5%;'>
+    <view class='page__bd page__bd_spacing'>
+
+      <view class='weui-flex'>
+        <view class='weui-flex__item'>
+          <view class='placeholder' style='color:#000000;background-color:#ffffff;'>
+            <view style='display:flex;'>
+              {{sellerName}}
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='weui-flex' style='margin:-9px auto;'>
+        <view class='weui-flex__item'>
+          <view class='placeholder' style='color:#000000;background-color:#ffffff;height:5.3em;display:flex;'>
+            <view style='text-align: center;margin: 20px auto;color: #000000;font-size:36px;'>
+              ￥{{amount}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-flex">
+        <view class='weui-flex__item'>
+          <view class='placeholder' style='color:#000000;background-color:#ffffff;height:2.3em;display:flex;'>
+            <view style='text-align: center;display:flex;color: #8f8f94;font-size:14px;'>
+              订单号
+            </view>
+            <view style='text-align: center;margin-left:48%;color: #8f8f94;font-size:14px;'>
+              {{outOrderId}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells weui-cells_after-title" style='width:90%;margin-left:5%;margin-top:-5%;'>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">付款卡</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
+            <view class="weui-select weui-select_in-select-after">{{countries[countryIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+ 
+    <button  class="weui-btn" type="primary" bindtap="pay" style='margin-top:12%;width:93%;'> 确定
+  </button>
+
+
+    <modal hidden="{{modalCardput}}" title="绑定卡片并支付" confirm-text="支付" cancel-text="取消" bindcancel="payCancel" bindconfirm="payConfirm">
+
+      <view class="weui-cell weui-cell_input {{cardNumInputCss == 1?'weui-cell_warn':''}} " data-cardNumInputCss='1'>
+        <view class="weui-cell__hd">
+          <view style='width:65px;' class="weui-label">卡号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input bindinput="cardNumInput" name='cardNum' class="weui-input" type='number'  maxlength='19' placeholder="请输入万商卡卡号" />
+        </view>
+        <view class="weui-cell__ft" >
+          <icon hidden="{{cardNumIconCss}}" type="warn" size="23" color="#E64340"></icon>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input  {{cardPwdInputCss == 1?'weui-cell_warn':''}} " data-cardPwdInputCss='1'>
+        <view class="weui-cell__hd">
+          <view style='width:65px;' class="weui-label">密码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input bindinput="cardPwdInput" class="weui-input" name='cardPwd' type='number' password='true' maxlength='6' placeholder="请输入万商卡密码" />
+        </view>
+         <view class="weui-cell__ft" >
+          <icon hidden="{{cardPwdIconCss}}" type="warn" size="23" color="#E64340"></icon>
+        </view>
+      </view>
+    </modal>
+
+  </view>
+</view>
