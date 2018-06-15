@@ -196,11 +196,10 @@ Page({
                     console.log("指纹支付",data)
                     if (data.data.code == '200' ){
                       wx.redirectTo({
-                        url: '/pages/prepay/msg_success'
+                        url: '/pages/prepay/msg_success?merch_name='+'万商支付'
                       })
                     } else {
                       wx.redirectTo({
-                      
                         url: '/pages/prepay/msg_fail?failInfo='+data.data.msg
                       })
                     }

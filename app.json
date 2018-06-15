@@ -50,20 +50,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "./image/new_logo.png",
+        "iconPath": "./image/huisezhuye.png",
         "selectedIconPath": "./image/new_logo.png"
       },
       {
         "pagePath": "pages/find/find",
         "text": "发现",
         "iconPath": "./image/huisefaxian.png",
-        "selectedIconPath": "./image/huisefaxian.png"
+        "selectedIconPath": "./image/faxian.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "./image/huisewode.png",
-        "selectedIconPath": "./image/huisewode.png"
+        "selectedIconPath": "./image/wode.png"
       }
     ]
   }

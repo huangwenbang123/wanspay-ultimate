@@ -134,7 +134,8 @@ Page({
               if (res.confirm) {
                 wx.redirectTo({ url: '/pages/addCard/addCard' })
               } else {
-                wx.redirectTo({ url: '/pages/index/index' })
+                wx.switchTab({
+                 url: '/pages/index/index' })
               }
             }
           });

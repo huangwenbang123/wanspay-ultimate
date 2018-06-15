@@ -70,7 +70,7 @@ Page({
       success: function (data) {
         console.log(data)
         var serverlist = [];
-        var realserverlist = [];
+       
         serverlist.push("请选则服务区");
         for (var index in data.data.body.datas) {
           var ser = data.data.body.datas[index].server;
@@ -228,7 +228,7 @@ Page({
       return;
     }
     wx.setStorageSync("exchargeRatio", that.data.exchargeRatio)
-    var serverInfo=that.data.countries[that.data.countryIndex];
+    var serverInfo = that.data.realserverlist[that.data.countryIndex-1];
     if (that.data.selectFlag == true){
       var goodsDetail = {
         "goodsId": that.data.gameInfo.itemId,

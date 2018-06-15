@@ -5,10 +5,9 @@ Page({
   },
   onLoad: function (options) {
   let that = this;
-
-    this.setData({
-      merchant: wx.getStorageSync('CashierDest').merchName
-    })
+  if (options.merch_name == '' || options.merch_name==undefined){
+    merchant: wx.getStorageSync('CashierDest').merchName
+    }
     wx.setStorageSync('jusutongOrderId', 'R' + wx.getStorageSync('jusutongOrderId'))
     var payinfo = wx.getStorageSync("payinfo");
   

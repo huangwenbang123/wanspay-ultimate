@@ -78,7 +78,7 @@ Component({
                     console.log('下单信息',data)
                     if (data.data.code == '200'){
                       wx.redirectTo({
-                        url: '/pages/prepay/msg_success'
+                        url: '/pages/prepay/msg_success?merch_name=' + '万商支付'
                       })
                    }else{
                       wx.redirectTo({
