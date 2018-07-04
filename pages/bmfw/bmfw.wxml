@@ -46,11 +46,14 @@
 
 <block wx:if="{{busi != ''}}">
   <block wx:if="{{busi.buzCode == 'CHARGE_ASK_SUCCESS'}}">
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" data-cityCode='{{cityCode}}' value="{{multiIndex}}" range="{{multiArray}}">
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" data-cityCode='{{cityCode}}' value="{{multiIndex}}" range="{{multiArray}}" style='padding:0;'>
       <view class="page__desc title">
         <input style='color: #55638d;' class="weui-input" id="address" value="{{name}}" type="text" disabled='true' data-code="025" data-codes="32,025">
         </input>
-        <image class='triangle' src='/image/triangle.png'></image>
+        <view style='margin-left:-93rpx;margin-top:18rpx;'>
+          <image class='triangle' src='/image/triangle.png'></image>
+        </view>
+
       </view>
     </picker>
 
@@ -58,12 +61,12 @@
       <block wx:for="{{busi.chargeBusiTypes}}" wx:for-index="idx" wx:for-item="itemBusi">
 
         <view wx:if="{{itemBusi.busiCode == 01}}">
-          <view bindtap='goCharge'  hidden='{{!water}}' data-busiCode='{{itemBusi.busiCode}}' class="weui-grid" hover-class="weui-grid_active">
+          <view bindtap='goCharge' hidden='{{!water}}' data-busiCode='{{itemBusi.busiCode}}' class="weui-grid" hover-class="weui-grid_active">
             <image class="weui-grid__icon" src="{{url}}/{{itemBusi.busiIconUrl}}" />
             <view class="weui-grid__label">{{itemBusi.busiName}}</view>
           </view>
         </view>
-        
+
         <view wx:elif="{{itemBusi.busiCode == 02}}">
           <view bindtap='goCharge' hidden='{{!electricity}}' data-busiCode='{{itemBusi.busiCode}}' class="weui-grid" hover-class="weui-grid_active">
             <image class="weui-grid__icon" src="{{url}}/{{itemBusi.busiIconUrl}}" />
@@ -79,7 +82,7 @@
         </view>
 
         <view wx:else>
-          <view  bindtap='goCharge' data-busiCode='{{itemBusi.busiCode}}' class="weui-grid" hover-class="weui-grid_active">
+          <view bindtap='goCharge' data-busiCode='{{itemBusi.busiCode}}' class="weui-grid" hover-class="weui-grid_active">
             <image class="weui-grid__icon" src="{{url}}/{{itemBusi.busiIconUrl}}" />
             <view class="weui-grid__label">{{itemBusi.busiName}}</view>
           </view>
@@ -94,4 +97,3 @@
 <view class="weui-msg__text-area" wx:else>
   <p class="weui-msg__desc">暂无数据</p>
 </view>
-

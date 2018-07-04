@@ -7,36 +7,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
-  /**
-   * 小程序支付测试
-   */
-  chargeTest: function () {
-    wx.request({
-      url: 'https://master.order.sanppay.com/wxsp/charge/test',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data)
 
-        let payInfo = JSON.parse(res.data.data.payInfo)
-        wx.requestPayment({
-          'timeStamp': payInfo.timeStamp,
-          'nonceStr': payInfo.nonceStr,
-          'package': payInfo.package,
-          'signType': payInfo.signType,
-          'paySign': payInfo.paySign,
-          'success': function (res) {
-            console.log(res)
-          },
-          'fail': function (res) {
-            console.log(res)
-          }
-        })
-
-      }
-    })
-  },
 
   goToIndex: function (e) {
     let that = this;
@@ -71,13 +42,11 @@ Page({
                 success: function (res) {
                   console.log(res)
                   if (res.data.msg == "解密成功") {
-                    app.globalData.userInfo = res.data.userInfo
-                    typeof cb == "function" && cb(that.globalData.userInfo)
                     wx.setStorage({
                       key: "userInfo",
                       data: res.data.userInfo,
-                      
                     })
+                    customerAdd(res.data.userInfo);
                     wx.switchTab({
                       url: '../index/index',
                     });
@@ -127,3 +96,31 @@ Page({
   },
 
 });
+
+/**
+ * 添加账户
+ */
+function customerAdd(that) {
+  console.log("用户信息：", that)
+  wx.request({
+    url: 'https://account.sanppay.com/customer/add',
+    method: 'POST',
+    data: {
+      body: {
+        thirdCustId: that.unionId,
+        custName: that.nickName.replace(/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g, ""),
+        custType: 'wxsp'
+      }
+    },
+    header: {
+      'content-type': 'application/json'
+    },
+    success: function (res) {
+      console.log(res.data)
+      wx.setStorage({
+        key: "custId",
+        data: res.data.body.custId
+      })
+    }
+  })
+}

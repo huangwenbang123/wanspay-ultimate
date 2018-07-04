@@ -114,7 +114,7 @@ App({
                         'content-type': 'application/x-www-form-urlencoded' // 默认值
                       },
                       success: function (res) {
-                        console.log(res)
+                        console.log("nidaye",res)
                         that.globalData.userInfo = res.data.userInfo
                         typeof cb == "function" && cb(that.globalData.userInfo)
                         //添加一个用户账户

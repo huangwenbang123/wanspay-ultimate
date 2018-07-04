@@ -23,10 +23,7 @@
         </image>
         <view class="weui-tabbar__label" style="font-size: 12px;">线上商城</view>
       </view> -->
-      <!-- <view bindtap='bmfw' class="weui-tabbar__item" style="padding-top: 3%">
-        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/newLift1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;" />
-        <view class="weui-tabbar__label" style="font-size: 12px;">便民服务</view>
-      </view> -->
+ 
       <view bindtap='yyyx' class="weui-tabbar__item" style="padding-top: 3%">
         <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/newPlay1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;" />
         <view class="weui-tabbar__label" style="font-size: 12px;">影音游戏</view>
@@ -42,12 +39,15 @@
         </image>
         <view class="weui-tabbar__label" style="font-size: 12px;">签到抽奖</view>
       </view>
-
     </view>
 
 
     <view class="sort2">
 
+       <view  bindtap='bmfw' class="weui-tabbar__item" style="padding-top: 3%">
+        <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/newLift1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;" />
+        <view class="weui-tabbar__label" style="font-size: 12px;">生活缴费</view>
+      </view>  
 
       <view bindtap='businessCooperation' style="padding-top: 3%" href="http://integral.sanppay.com/sign/index" class="weui-tabbar__item">
         <image src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/newEat1.png" class="weui-tabbar__icon" style="padding: 5px;width: 40px;height: 40px;">
@@ -67,9 +67,6 @@
       
       </view>
 
-      <view bindtap='kfdh' style="padding-top: 3%" href="tel:400-025-5788" class="weui-tabbar__item">
-     
-      </view>
 
     </view>
 

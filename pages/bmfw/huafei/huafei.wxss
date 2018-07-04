@@ -13,17 +13,27 @@ page {
   width: 30%;
   height: 3.5rem;
   text-align: center;
+  background-color: white !important;
+  color: gray;
 }
+
 .biankuang2 {
-  border: 1px solid #65B178 !important;
+  border: 1px solid #65b178 !important;
   border-radius: 5px !important;
   margin-left: 2%;
   width: 30%;
   height: 3.5rem;
   text-align: center;
-  color: #65B178;
+  color: #65b178;
 }
-.juzhong{
-  margin-top:11%;
 
+.juzhong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+button::after {
+  border: none;
 }

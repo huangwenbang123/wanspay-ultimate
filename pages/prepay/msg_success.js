@@ -6,7 +6,9 @@ Page({
   onLoad: function (options) {
   let that = this;
   if (options.merch_name == '' || options.merch_name==undefined){
-    merchant: wx.getStorageSync('CashierDest').merchName
+    that.setData({
+      merchant: wx.getStorageSync('CashierDest').merchName
+    });
     }
     wx.setStorageSync('jusutongOrderId', 'R' + wx.getStorageSync('jusutongOrderId'))
     var payinfo = wx.getStorageSync("payinfo");
@@ -49,7 +51,6 @@ function sendTemp() {
   var l = wx.getStorageSync("accessToke");
   var payCardNum = wx.getStorageSync("payCardNum");
   var exchargeRatio = wx.getStorageSync("exchargeRatio");
-
   if (exchargeRatio == ''){
     exchargeRatio=1;
     }
@@ -57,7 +58,7 @@ function sendTemp() {
   var d = {
     touser: wx.getStorageSync('userInfo').openId,
     template_id: 'UzqlqILLI7ANNo269lQL4iXHlAuYm1WFJNkjnPSlYnY',//这个是1、申请的模板消息id， 
-    page: '/pages/index/index',
+    page: 'pages/index/index',
     form_id: fId,
     data: {//测试完发现竟然value或者data都能成功收到模板消息发送成功通知，是bug还是故意？？【鄙视、鄙视、鄙视...】 下面的keyword*是你1、设置的模板消息的关键词变量 
       "keyword1": {
@@ -137,7 +138,7 @@ function sendTemp1(that) {
   var d = {
     touser: wx.getStorageSync('userInfo').openId,
     template_id: 'RQ3v-diP45Hy0B9lMFRJXIRW79jRP-_wRSOcAfToedc',//这个是1、申请的模板消息id， 
-    page: '/pages/index/index',
+    page: 'pages/index/index',
     form_id: fId,
     data: {//测试完发现竟然value或者data都能成功收到模板消息发送成功通知，是bug还是故意？？【鄙视、鄙视、鄙视...】 下面的keyword*是你1、设置的模板消息的关键词变量 
       "keyword1": {

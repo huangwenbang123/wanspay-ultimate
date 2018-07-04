@@ -20,8 +20,9 @@
       </view>
     </view>
   </view>
-
-  <button style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='next'>下一步</button>
+  <form bindsubmit="submitInfo" report-submit='true'>
+  <button form-type="submit" style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='next'>下一步</button>
+  </form>
 
 </view>
 
@@ -71,42 +72,37 @@
           充值金额
         </view>
 
-        <view class="weui-media-box__title twoFlex Grid">
-          <view bindtap="active" data-num="1" style='margin:0' class='{{active == "1" ? "Grid-cell-select":"Grid-cell" }} box'>
-            <view>
-              100元
-            </view>
 
-          </view>
-          <view bindtap="active" data-num="2" class='{{active == "2" ? "Grid-cell-select":"Grid-cell" }} box'>
-            <view>
-              200元
-            </view>
-          </view>
-          <view bindtap="active" data-num="3" class='{{active == "3" ? "Grid-cell-select":"Grid-cell" }} box'>
-            <view>
-              500元
-            </view>
-          </view>
-        </view>
 
-        <view class="weui-media-box__title twoFlex Grid">
-          <view bindtap="active" data-num="4" style='margin:0' class='{{active == "4" ? "Grid-cell-select":"Grid-cell" }} box'>
-            <view>
-              1000元
-            </view>
-          </view>
-          <view class='Grid-none'>
-            <view class='juzhong'>
+        <block wx:for="{{xunhuan}}" wx:for-index="idx" wx:for-item="itemName">
+          <view class="weui-media-box__title twoFlex Grid">
 
-            </view>
-          </view>
-          <view class='Grid-none'>
-            <view class='juzhong'>
+            <block wx:for="{{itemName}}" wx:for-index="idx1" wx:for-item="itemName1">
 
-            </view>
+              <block wx:if="{{idx1 == 0}}"> 
+                      <view bindtap="active" data-num="{{idx*3+idx1+1}}" style='margin-left:0px;margin-top:5px' class='{{active == idx*3+idx1+1 ? "Grid-cell-select":"Grid-cell" }} box'>
+                  <view>
+                    {{itemName1.dueAmount/100}} 元
+                  </view>
+                </view>
+              </block>
+
+              <block wx:else>
+                <view bindtap="active" data-num="{{idx*3+idx1+1}}" style='margin-left:5px;margin-top:5px' class='{{active == idx*3+idx1+1 ? "Grid-cell-select":"Grid-cell" }} box'>
+                  <view>
+                    {{itemName1.dueAmount/100}} 元
+                  </view>
+                </view>
+              </block>
+
+
+            </block>
           </view>
-        </view>
+
+        </block>
+
+
+
 
       </view>
     </view>

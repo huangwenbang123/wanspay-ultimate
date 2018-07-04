@@ -31,7 +31,7 @@
 
   <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_access">
-      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" style='overflow: hidden;white-space: nowrap;text-overflow: ellipsis;'>
         <view class="weui-media-box__title twoFlex">
           <view>
             户名:
@@ -58,29 +58,30 @@
             {{projectName}}
           </view>
         </view>
-         
-         <view class="weui-media-box__title twoFlex">
+
+        <view class="weui-media-box__title twoFlex">
           <view>
             可用余额:
           </view>
           <view>
-           ￥{{balance}}
+            {{balance == ""?0.00:balance}}
           </view>
         </view>
 
-          <view class="weui-media-box__title twoFlex">
+        <view class="weui-media-box__title twoFlex">
           <view>
             应缴金额:
           </view>
           <view>
-           ￥{{payAmount}}
+            ￥{{payAmount}}
           </view>
         </view>
 
         <view class="hr1"></view>
-        <view style='color:gray;letter-spacing: 0.05em;font-size:14px;' class="weui-media-box__title twoFlex">
-          有任何疑问请拨打我们的万商客服电话：110
+        <view style='color:gray;font-size:14px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;' class="weui-media-box__title twoFlex">
+          有任何疑问请拨打我们的万商客服电话：4000255788
         </view>
+        
       </view>
     </view>
   </view>
@@ -89,15 +90,15 @@
     <view class="weui-cell weui-cell_access">
       <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
         <view style='margin:0;' class="weui-media-box__title twoFlex">
-          ￥  {{payAmount}}
+          支付金额：￥ {{payAmount}}
         </view>
       </view>
     </view>
   </view>
-
-  <button style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='toCharge'>立即缴费</button>
-
+  <form bindsubmit="submitInfo" report-submit='true'>
+    <button form-type="submit" style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='toCharge'>立即缴费</button>
+  </form>
 </view>
 
-<import src="../../../preorder/preorder.wxml"/>
-<template is="checkstand" ></template>
+<import src="../../../preorder/preorder.wxml" />
+<template is="checkstand"></template>

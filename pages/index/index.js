@@ -37,6 +37,19 @@ Page({
 
   onLoad: function (options) {
   var that = this;
+  const updateManager = wx.getUpdateManager()
+
+  updateManager.onCheckForUpdate(function (res) {
+    // 请求完新版本信息的回调
+    console.log("是否有新版本：",res.hasUpdate)
+  })
+
+    updateManager.onUpdateReady(function () {
+    // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+    console.log("更新新版本并重启")
+    updateManager.applyUpdate()    
+    })
+
   //获取主页推荐商户信息
   getStoreList(that);
     //获取accessToke
@@ -87,131 +100,6 @@ Page({
 
 
 
-
-  getUserInfo: function (e) {
-    var that = this;
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-    this.setData({
-      iv: e.detail.iv
-    })
-    this.setData({
-      encryptedData: e.detail.encryptedData
-    })
-
-    //3.解密用户信息 获取unionId
-    wx.request({
-      url: 'https://cashiertest.sanppay.com/wxsp/decodeUserInfo',
-      method: 'post',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: { encryptedData: e.detail.encryptedData, iv: e.detail.iv, code: this.data.user_code },
-      success: function (data) {
-        console.log("获取自己服务器返回的结果:" + JSON.stringify(data))
-        //4.解密成功后 获取自己服务器返回的结果
-        if (data.data.status == 1) {
-          var userInfo_ = data.data.userInfo;
-          console.log(userInfo_)
-          wx.setStorageSync('userInfo', data.data);
-          that.setData({
-            userInfo: data.data.userInfo,
-          })
-          //绑定用户
-          wx.request({
-            url: 'https://cashiertest.sanppay.com/wxsp/card/bindUser',
-            method: 'post',
-            header: {
-              'content-type': 'application/x-www-form-urlencoded'
-            },
-            data: {
-              userId: wx.getStorageSync('userInfo').userInfo.openId,
-              unionId: wx.getStorageSync('userInfo').userInfo.unionId,
-            },
-            success: function (data) {
-              that.setData({
-                shouquan: true
-              })
-            },
-            fail: function () {
-              console.log('系统错误')
-            }
-          })
-
-        } else {
-          console.log('解密失败')
-
-          wx.showModal({
-            title: '警告',
-            content: '您点击了拒绝授权，将无法正常使用扫码功能.请同意使用我的信息，以便我们为您服务',
-            success: function (res) {
-              if (res.confirm) {
-                wx.getSetting({
-                  success(res){
-                    if(!res.authSetting['scope.userInfo']){
-                      wx.authorize({
-                        scope: 'scope.userInfo',
-                        success(){},
-                        fail(){
-                          wx.openSetting({
-                            success: res => {
-                                res.authSetting ={
-                                  'scope.userInfo':true,
-                                  'scope.userLocation':true
-                                }
-                                wx.navigateTo({ url: '/pages/index/index' })
-                            }
-                          })
-                        }
-                      })
-                    }
-                  }
-                })
-
-                that.setData({
-                  shouquan: true
-                })
-
-              } else {
-                wx.getSetting({
-                  success(res) {
-                    if (!res.authSetting['scope.userInfo']) {
-                      wx.authorize({
-                        scope: 'scope.userInfo',
-                        success() { },
-                        fail() {
-                          wx.openSetting({
-                            success: res => {
-                              res.authSetting = {
-                                'scope.userInfo': true,
-                                'scope.userLocation': true
-                              }
-                              wx.navigateTo({ url: '/pages/index/index' })
-                            }
-                          })
-                        }
-                      })
-                    }
-                  }
-                })
-              }
-            }
-          })
-
-
-        }
-
-      },
-      fail: function () {
-        console.log('系统错误')
-      }
-    })
-
-  },
 
 
   saoyisao: function () {//定义函数名称
@@ -289,39 +177,7 @@ Page({
       modalPwdput: true
     });
   },
-  //模态框小程序密码确认按钮 
-  payConfirm: function () {
-    this.setData({
-      modalPwdput: true
-    });
-    var pin = hexMD5.hexMD5(this.data.Pwd);
-    console.log("pin:" + pin)
-    //设置支付密码
-    wx.request({
-      url: 'https://cashiertest.sanppay.com/wxsp/user/setPin',//自己的服务接口地址
-      method: 'post',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        pin: pin,
-        unionId: wx.getStorageSync('userInfo').userInfo.unionId,
-      },
-      success: function (data) {
-        wx.showToast({
-          title: '设置成功',
-          icon: 'success',
-          duration: 1500
-        });
-      },
-      fail: function () {
-        wx.showToast({
-          title: '设置失败',
-          duration: 3000
-        });
-      }
-    })
-  },
+
   
   PwdInput: function (e) {
     this.setData({
@@ -417,7 +273,6 @@ Page({
   changeLoading: function (res) {
     var that  = this;
     var code = this.data.user_code;
-
   },
   /**
    * 影音游戏

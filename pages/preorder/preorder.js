@@ -96,8 +96,8 @@ Page({
       data: {
         body: {
           outTradeNo: wx.getStorageSync('userInfo').unionId + dataHms(),
-          sellerId: wx.getStorageSync('CashierDest').merchId + "",
-          sellerName: wx.getStorageSync('CashierDest').sellerId,
+          sellerId: wx.getStorageSync('CashierDest').merchCode+ "",
+          sellerName: wx.getStorageSync('CashierDest').merchName,
           operatorId: wx.getStorageSync('userInfo').unionId,
           buziType: "SCANPAY",
           totalAmount: (amount * 100).toFixed(0),

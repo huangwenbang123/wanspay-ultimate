@@ -13,7 +13,7 @@ Page({
     busi: {},
     city: {},
     province: {},
-    url: "https://master.order.sanppay.com",
+    url: "https://nidaye.sanppay.com",
     multiArray: {},
     multiIndex: [0, 0],
     cityCode: {},
@@ -40,7 +40,7 @@ Page({
     
     getPage(this);
     wx.request({
-      url: 'https://master.order.sanppay.com/wxsp/charge/index',
+      url: 'https://charge.sanppay.com/wxsp/charge/index',
       header: {
         'content-type': 'application/json'
       },
@@ -251,7 +251,7 @@ function getPage(that) {
   console.log("省份代码 province is " + nowProvinceCode + " ,城市信息 nowCityCode is " + nowCityCode)
 
   wx.request({
-    url: 'https://master.order.sanppay.com/utilities/company',
+    url: 'https://charge.sanppay.com/utilities/company',
     method: "POST",
     data: {
       cityCode: nowCityCode,
@@ -280,7 +280,7 @@ function getPage(that) {
         that.setData({
           water: water,
           electricity: electricity,
-          fuelGas: water
+          fuelGas: fuelGas
         })
       }
     }
