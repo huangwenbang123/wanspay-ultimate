@@ -105,7 +105,11 @@ Page({
   saoyisao: function () {//定义函数名称
     var that = this;
     var show;
- 
+    // wx.showToast({
+    //   title: '系统升级，暂不可用',
+    //   icon: 'none',
+    //   duration: 2000
+    // })
     if (wx.getStorageSync('userInfo')){
       wx.scanCode({
         success: (res) => {

@@ -15,6 +15,8 @@ Page({
     modalCardput: true,
     modalCardput2: true,
     modalNoCardput: true,
+    date:"轻触选择账单周期",
+    activeIndex: 0,
   },
 
   /**
@@ -30,6 +32,11 @@ Page({
         })
       },
     })
+
+    // that.setData({
+    //   data: nowData()
+    // })
+    
   },
 
   /**
@@ -101,6 +108,7 @@ Page({
     let billKey = that.data.billKey;
     let projectName = this.data.paymentInstitutions.projectName;
     let projectNo = this.data.paymentInstitutions.projectNo;
+
     wx.request({
       url: 'https://charge.sanppay.com/utilities/dueamount',
       method: "POST",
@@ -108,7 +116,7 @@ Page({
         billKey: billKey,
         projectNo: projectNo,
         projectName: projectName,
-        queryNum: 1
+        queryNum: 1,
       },
       header: {
         'content-type': 'application/json'
@@ -121,13 +129,21 @@ Page({
           that.setData({
             hiddenFlag: true,
             contractNo: res.data.body.data[0].contractNo,
-            num: res.data.body.data[0].contractNo,
+            num: that.data.billKey,
             name: res.data.body.data[0].customerName,
             balance: res.data.body.data[0].balance,
             payAmount: (res.data.body.data[0].dueAmount) / 100,
             projectName: res.data.body.projectName,
-            billKey: res.data.body.billKey
+            billKey: res.data.body.billKey,
           })
+          // //修改日期格式 修改金额小数位
+          // for (var i = 0; i < res.data.body.data.length;i++ ){
+          //   res.data.body.data[i].filed1 = res.data.body.data[i].filed1.substring(0, 4) + "年" + res.data.body.data[i].filed1.substring(4,6)+"月"
+          //   res.data.body.data[i].dueAmount = (res.data.body.data[i].dueAmount / 100).toFixed(2)
+          // }
+          // that.setData({
+          //   dataList: res.data.body.data
+          // })
         }else{
           wx.showToast({
             title: res.data.msg,
@@ -168,42 +184,6 @@ Page({
         break;
     }
 
-    // let outTradeNo = reverse(wx.getStorageSync('userInfo').unionId) + dataHms();
-    // let sellerId = "123456789";
-    // let goodsName = that.data.paymentInstitutions.projectName;
-    // let operatorId = wx.getStorageSync('userInfo').unionId;
-    // let totalAmount = accMul(that.data.payAmount,100) ;
-    // let currency = "CNY";
-    // let subject = "生活缴费";
-    // let goodsId = that.data.paymentInstitutions.projectNo;
-    // let ext1 = that.data.contractNo;
-    // wx.request({
-    //   url: 'https://nidaye.sanppay.com/utilities/chargeTest',
-    //   method: "POST",
-    //   data: {
-    //     goodsCategory: buziType,
-    //     tradeNo: '170606101752',
-    //     outTradeNo: outTradeNo,
-    //     subject: subject,
-    //     accountNo: that.data.billKey,
-    //     goodsId: goodsId,
-    //     goodsName: goodsName,
-    //     totalAmount: totalAmount,
-    //     ext1: "7417062017100853"
-    //   },
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   success: function(res) {
-    //     wx.hideLoading()
-    //     console.log(res.data)
-    //     //查询到用户欠费信息
-    //     if (res.data.code == 200) {
-
-    //     }
-
-    //   }
-    // })
     let outTradeNo = dataHms()
     let sellerId = "301320120010105"
     let sellerName = that.data.paymentInstitutions.projectName
@@ -260,6 +240,19 @@ Page({
     console.log(e.detail.formId);
     wx.setStorageSync('form_id', e.detail.formId);
   },
+  //账单周期修改
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  //单选框
+  radioChange: function (e) {
+    this.setData({
+      activeIndex: e.currentTarget.dataset.index
+    });
+  },
 
 })
 
@@ -296,6 +289,19 @@ function dataHms() {
   var x = Math.random().toString(36).substr(2, 15);
   console.log("当前时间：" + h + ":" + m + ":" + s);
   let time = "" + Y + "" + M + "" + D + "" + h + "" + m + "" + s + "" + Milliseconds + x;
+  return time;
+}
+
+function nowData(){
+  var timestamp = Date.parse(new Date());
+  timestamp = timestamp / 1000;
+  var n = timestamp * 1000;
+  var date = new Date(n);
+  //年  
+  var Y = date.getFullYear();
+  //月  
+  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+  let time = "" + Y + "" + M 
   return time;
 }
 

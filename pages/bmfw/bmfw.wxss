@@ -18,7 +18,7 @@ page {
 }
 
 .title {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   margin-top: 2%;
   margin-left: 5%;
   margin-bottom: 2%;
@@ -31,4 +31,9 @@ page {
   padding-top: 2.5%;
   margin-left: -16%;
   width: 8px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between  ;
 }

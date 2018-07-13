@@ -7,9 +7,12 @@
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_access">
       <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-        <view style='line-height:5;font-size:18px;' class="weui-media-box__desc">
+        <view style='line-height:5;font-size:18px;' class="weui-media-box__desc box">
           <input value='{{phoneNum}}' placeholder-style="color:#65B178;font-size:18px" placeholder="请输入手机号码" type='number' maxlength='13' bindinput="inputChange">
           </input>
+          <button hover-class="none" style='color:#65B178;margin-top:-4%;font-size:1.25rem;width:20%;' class='iconfont icon-character-avatar' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+
+          </button>
         </view>
         <view style='font-size:12px;color:red;height:20px;' class="weui-media-box__title">{{msg}}</view>
       </view>

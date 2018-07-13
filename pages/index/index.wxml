@@ -91,7 +91,7 @@
           <view class="weui-panel__bd" id='{{storeList[idx].id}}' data-id="{{storeList[idx].id}}" bindtap='detailedMechantInfo'>
             <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
               <view class="my_weui-media-box__hd">
-                <image class="weui-media-box__thumb" style="height: 78%;margin-top: 12%;" src="http://bus.sanppay.com/image/{{storeList[idx].photoImgPath}}">
+                <image class="weui-media-box__thumb" style="height: 78%;margin-top: 12%;" src="http://bus.sanppay.com/image/{{storeList[idx].logoImgPath}}">
                 </image>
               </view>
               <view class="weui-media-box__bd">
@@ -148,7 +148,7 @@
           <view class="weui-panel__bd" id="{{storeList[idx].id}}" data-id="{{storeList[idx].id}}" bindtap='detailedMechantInfo'>
             <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
               <view class="my_weui-media-box__hd">
-                <image class="weui-media-box__thumb" style="height: 78%;margin-top: 12%;" src="http://bus.sanppay.com/image/{{storeList[idx].photoImgPath}}">
+                <image class="weui-media-box__thumb" style="height: 78%;margin-top: 12%;" src="http://bus.sanppay.com/image/{{storeList[idx].logoImgPath}}">
                 </image>
               </view>
               <view class="weui-media-box__bd">

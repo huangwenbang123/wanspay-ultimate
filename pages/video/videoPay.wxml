@@ -61,7 +61,7 @@
           <view class="preorder-placeholder"> ￥{{amount}}</view>
         </view>
       </view>
-    </view>
+    </view> 
     <view class="weui-cells weui-cells_after-title" style='margin-top:2%;background-color:#FAFAFC;width:100%;'>
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__hd weui-cell__hd_in-select-after" style='width: 22%;text-align: right;padding: 0;'>

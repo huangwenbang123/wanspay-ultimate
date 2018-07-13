@@ -37,3 +37,17 @@ page {
 button::after {
   border: none;
 }
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 655719 */
+  src: url('//at.alicdn.com/t/font_655719_77qgj3ycltx.eot');
+  src: url('//at.alicdn.com/t/font_655719_77qgj3ycltx.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_655719_77qgj3ycltx.woff') format('woff'),
+  url('//at.alicdn.com/t/font_655719_77qgj3ycltx.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_655719_77qgj3ycltx.svg#iconfont') format('svg');
+}

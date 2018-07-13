@@ -11,7 +11,7 @@ Page({
     projectName: '全国手机话费充值',
     projectNo: '',
     phoneName: '',
-    url : "charge.sanppay.com"
+    url: "charge.sanppay.com"
   },
 
   /**
@@ -75,13 +75,12 @@ Page({
   inputChange: function(e) {
     console.log(e)
     let value = e.detail.value.replace(/\s+/g, "");
-    console.log("手机号码 value is :" + value)
     if (value.length == 11) {
       //判断手机号码是否合法
       var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
       if (myreg.test(value)) {
         //合法操作
-        isChinaMobilePhoneNum(value,this)
+        isChinaMobilePhoneNum(value, this)
         this.setData({
           flag: true,
           msg: this.data.phoneName
@@ -116,7 +115,7 @@ Page({
     if (flag) {
       wx.showLoading({
         title: '疯狂加载中',
-        mask :true
+        mask: true
       })
       console.log(e)
       //组装业务进行充值
@@ -153,7 +152,7 @@ Page({
           //话费充值预处理完成
           if (res.data.code == 200) {
             // 话费 预下单
-            let outTradeNo =dataHms()
+            let outTradeNo = dataHms()
             let buziType = "PHONE"
             let sellerId = "301320120010105"
             let sellerName = that.data.projectName
@@ -161,7 +160,7 @@ Page({
             let accountNo = res.data.body.billKey
             let totalAmount = res.data.body.data[0].dueAmount
             let goodsDetail = {}
-          
+
             goodsDetail.goodsId = res.data.body.projectNo;
             goodsDetail.goodsName = sellerName;
             goodsDetail.goodsCategory = "PHONE";
@@ -188,13 +187,13 @@ Page({
                   goodsDetail: goodsDetail
                 }
               },
-              success: function (data) {
+              success: function(data) {
                 console.log(data)
                 wx.navigateTo({
-                  url: '/pages/pay/pay?outTradeNo=' + data.data.body.outTradeNo + "&sellerName=" + sellerName + "&amount=" + totalAmount/100,
+                  url: '/pages/pay/pay?outTradeNo=' + data.data.body.outTradeNo + "&sellerName=" + sellerName + "&amount=" + totalAmount / 100,
                 })
               },
-              fail: function () {
+              fail: function() {
                 console.log('系统错误')
               }
             })
@@ -218,7 +217,7 @@ Page({
             //     console.log(res.data)
             //     //充值话费成功
             //     if (res.data.code == 200) {
-                  
+
             //     }
             //   }
             // })
@@ -235,11 +234,64 @@ Page({
     }
   },
   //获取formId
-  submitInfo: function (e) {
+  submitInfo: function(e) {
     console.log('以下是formId')
     console.log(e.detail.formId);
     wx.setStorageSync('form_id', e.detail.formId);
   },
+
+  //获取用户手机号 
+  getPhoneNumber: function(e) {
+    let that = this;
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+    //发送后台 秘钥 换取手机号
+    wx.request({
+      url: 'https://account.sanppay.com/getPhoneNumber',
+      method: "POST",
+      data: {
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+        session_key: wx.getStorageSync('userInfo').session_key,
+        xcxFlag: "wszf"
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function(res) {
+        console.log(res)
+        if (res.data.msg == "解密成功") {
+          wx.setStorage({
+            key: "phoneInfo",
+            data: res.data.phoneInfo.purePhoneNumber,
+          })
+          var value = res.data.phoneInfo.purePhoneNumber
+          //合法操作
+          isChinaMobilePhoneNum(value, that)
+          that.setData({
+            flag: true,
+            msg: that.data.phoneName
+          })
+          value = value.substring(0, 3) + ' ' + value.substring(3, 7) + ' ' + value.substring(7, 11);
+          //讲手机号存入input框中
+          that.setData({
+            phoneNum: value
+          })
+        } else {
+          wx.showToast({
+            title: '获取手机号失败，请手动输入',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      },
+    })
+
+  }
+
+
+
 })
 
 

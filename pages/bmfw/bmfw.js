@@ -13,7 +13,7 @@ Page({
     busi: {},
     city: {},
     province: {},
-    url: "https://nidaye.sanppay.com",
+    url: "https://charge.sanppay.com",
     multiArray: {},
     multiIndex: [0, 0],
     cityCode: {},

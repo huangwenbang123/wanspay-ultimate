@@ -11,6 +11,7 @@ Component({
       observer: function (newVal, oldVal) {
         let that = this;
         let input_value = that.data.input_value
+        console.log("1111111111111", input_value)
         that.triggerEvent('valueNow', input_value)
         // 当输入框的值等于6时（发起支付等...）
 

@@ -1,61 +1,21 @@
-<!--pages/bmfu/bmfu.wxml-->
-<!-- <view class="weui-grids" style="background: #FFFFFF">
-
-  <view bindtap='liuliang' class='weui-grid js_grid'>
-    <view class="weui-grid__icon">
-      <image  style='height:28px;width:28px;' src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/liuliang.png">
-      </image>
-    </view>
-    <view class="weui-grid__label">
-      流量充值
-    </view>
-  </view>
-
-   <view  bindtap='huafei' class='weui-grid js_grid'>
-    <view class="weui-grid__icon">
-      <image  style='height:28px;width:28px;' src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/huafei.png">
-      </image>
-    </view>
-    <view class="weui-grid__label">
-      话费充值
-    </view>
-  </view>
-
-    <view class='weui-grid js_grid'>
-    <view class="weui-grid__icon">
-      <image bindtap='sinopec'  style='height:28px;width:28px;' src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/shiyou.png">
-      </image>
-    </view>
-    <view class="weui-grid__label">
-      中石化加油卡充值
-    </view>
-  </view>
-
-    <view bindtap='life' class='weui-grid js_grid'>
-    <view class="weui-grid__icon">
-      <image  style='height:28px;width:28px;' src="http://bus.sanppay.com/wanshang-web-protal/RES/images/newIndex/shuidianmei.png">
-      </image>
-    </view>
-    <view class="weui-grid__label">
-      水电煤充值
-    </view>
-  </view>
-
-
-</view> -->
-
 <block wx:if="{{busi != ''}}">
-  <block wx:if="{{busi.buzCode == 'CHARGE_ASK_SUCCESS'}}">
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" data-cityCode='{{cityCode}}' value="{{multiIndex}}" range="{{multiArray}}" style='padding:0;'>
-      <view class="page__desc title">
-        <input style='color: #55638d;' class="weui-input" id="address" value="{{name}}" type="text" disabled='true' data-code="025" data-codes="32,025">
-        </input>
-        <view style='margin-left:-93rpx;margin-top:18rpx;'>
-          <image class='triangle' src='/image/triangle.png'></image>
-        </view>
 
-      </view>
-    </picker>
+  <block wx:if="{{busi.buzCode == 'CHARGE_ASK_SUCCESS'}}">
+   
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" data-cityCode='{{cityCode}}' value="{{multiIndex}}" range="{{multiArray}}" style='padding:0;'>
+       <view class='box'>
+        <view class="page__desc title">
+          <input style='color: #55638d;' class="weui-input" id="address" value="{{name}}" type="text" disabled='true' data-code="025" data-codes="32,025">
+          </input>
+        </view>      
+   
+         <view style='padding-top:3.5%;font-size:12px;color:gray;' class="iconfont icon-you">
+           
+          </view>
+    </view>
+       </picker>
+
+
 
     <view class="weui-grids" style="background-color:#ffffff">
       <block wx:for="{{busi.chargeBusiTypes}}" wx:for-index="idx" wx:for-item="itemBusi">
@@ -90,7 +50,6 @@
 
       </block>
     </view>
-
   </block>
 </block>
 

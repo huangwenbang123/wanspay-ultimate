@@ -28,7 +28,6 @@
 
 <view hidden='{{!hiddenFlag}}'>
 
-
   <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_access">
       <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" style='overflow: hidden;white-space: nowrap;text-overflow: ellipsis;'>
@@ -73,7 +72,7 @@
             应缴金额:
           </view>
           <view>
-            ￥{{payAmount}}
+            ￥{{dataList[activeIndex].dueAmount}}
           </view>
         </view>
 
@@ -81,19 +80,48 @@
         <view style='color:gray;font-size:14px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;' class="weui-media-box__title twoFlex">
           有任何疑问请拨打我们的万商客服电话：4000255788
         </view>
-        
+
       </view>
     </view>
   </view>
 
   <view style='margin-top:5%;' class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_access">
-      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-        <view style='margin:0;' class="weui-media-box__title twoFlex">
-          支付金额：￥ {{payAmount}}
+
+    <block wx:if="{{paymentInstitutions.cityCode != '110000'}}">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view style='margin:0;' class="weui-media-box__title twoFlex">
+            支付金额：￥ {{payAmount}}
+          </view>
         </view>
       </view>
-    </view>
+    </block>
+    <block wx:else>
+      <view wx:for="{{dataList}}" wx:for-index="idx" wx:for-item="itemName">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view style='margin:0;' class="weui-media-box__title twoFlex">
+
+              <view style='padding-right:2%;'>
+                <view class="checkbox_icon checkbox_1" bindtap="radioChange" data-index="{{idx}}" wx:if="{{activeIndex!=idx}}"></view>
+                <view class="checkbox_icon checkbox_1_selected" bindtap="radioChange" wx:if="{{activeIndex==idx}}" data-index="{{idx}}"></view>
+              </view>
+
+              <view class="weui-cell__bd">
+                {{itemName.filed1}}
+              </view>
+              <view style='padding-right:2%;'>
+                {{itemName.dueAmount}}
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="hr2"></view>
+      </view>
+    </block>
+
+
+
   </view>
   <form bindsubmit="submitInfo" report-submit='true'>
     <button form-type="submit" style='width:90%;margin-left:5%;margin-top:5%;' class="weui-btn" disabled='{{flag}}' type="primary" bindtap='toCharge'>立即缴费</button>
